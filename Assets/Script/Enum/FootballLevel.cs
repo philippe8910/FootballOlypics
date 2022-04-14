@@ -14,6 +14,5 @@ public enum FootBallDetectedType
     Right,
     Left,
     Up,
-    Down
 }
 

@@ -39,7 +39,7 @@ public class ActorFootballController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Wrong Foot!!!!!");
+                    BallSteppingActionInputWrongFoot();
                 }
             }
             else
@@ -50,7 +50,7 @@ public class ActorFootballController : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Wrong Foot!!!!!");
+                    BallSteppingActionInputWrongFoot();
                 }
             }
             
@@ -64,6 +64,11 @@ public class ActorFootballController : MonoBehaviour
     {
         isRight = !isRight;
         BallSteppingActionCount++;
+    }
+
+    private void BallSteppingActionInputWrongFoot()
+    {
+        Debug.LogWarning("Wrong Foot");
     }
 
 }

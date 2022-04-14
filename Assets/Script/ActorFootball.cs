@@ -65,7 +65,6 @@ public class ActorFootball : MonoBehaviour
                 output = Physics.OverlapSphere(GetLeftTiggerPosition(), collisionRadius, footLayerMask);
                 break;
 
-
             default:
                 Debug.LogError("");
                 break;
