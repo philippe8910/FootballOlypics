@@ -41,7 +41,7 @@ public class ActorFootball : MonoBehaviour
                 break;
             
             default:
-                Debug.LogError("");
+                Debug.LogError("Wrong Type!!!");
                 break;
         }
 
