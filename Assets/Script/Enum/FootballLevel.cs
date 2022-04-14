@@ -9,7 +9,7 @@ public enum FootLevels
     InsideRightSideOfSeat
 }
 
-public enum FootBallDetectedType
+public enum FootBallDirectionDetectedType
 {
     Right,
     Left,

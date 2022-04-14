@@ -19,23 +19,29 @@ public class ActorFootball : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        
+    }
+
+    public void SetFootballKinematic(bool _isKinematic)
+    {
+        rigidbody.isKinematic = _isKinematic;
     }
     
-    public bool GetTrigger(FootBallDetectedType listeningType)
+    public bool GetTrigger(FootBallDirectionDetectedType listeningType)
     {
         var output = false;
         
         switch (listeningType)
         {
-            case FootBallDetectedType.Up:
+            case FootBallDirectionDetectedType.Up:
                 output = Physics.CheckSphere(GetUpTiggerPosition(), collisionRadius, footLayerMask);
                 break;
             
-            case FootBallDetectedType.Right:
+            case FootBallDirectionDetectedType.Right:
                 output = Physics.CheckSphere(GetRightTiggerPosition(), collisionRadius, footLayerMask);
                 break;
 
-            case FootBallDetectedType.Left:
+            case FootBallDirectionDetectedType.Left:
                 output = Physics.CheckSphere(GetLeftTiggerPosition(), collisionRadius, footLayerMask);
                 break;
             
@@ -47,26 +53,22 @@ public class ActorFootball : MonoBehaviour
         return output;
     }
 
-    public GameObject GetTriggerEnterObject(FootBallDetectedType listeningType)
+    public GameObject GetTriggerEnterObject(FootBallDirectionDetectedType listeningType)
     {
         var output = new Collider[]{};
-        
+
         switch (listeningType)
         {
-            case FootBallDetectedType.Up:
+            case FootBallDirectionDetectedType.Up:
                 output = Physics.OverlapSphere(GetUpTiggerPosition(), collisionRadius, footLayerMask);
                 break;
-
-            case FootBallDetectedType.Right:
+            
+            case FootBallDirectionDetectedType.Right:
                 output = Physics.OverlapSphere(GetRightTiggerPosition(), collisionRadius, footLayerMask);
                 break;
-
-            case FootBallDetectedType.Left:
+            
+            case FootBallDirectionDetectedType.Left:
                 output = Physics.OverlapSphere(GetLeftTiggerPosition(), collisionRadius, footLayerMask);
-                break;
-
-            default:
-                Debug.LogError("");
                 break;
         }
 

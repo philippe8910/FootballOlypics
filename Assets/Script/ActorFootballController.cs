@@ -25,12 +25,15 @@ public class ActorFootballController : MonoBehaviour
 
     private void OnBallSteppingActionDetected(BallSteppingActionDetected obj)
     {
-        var upTrigger = actor.GetTrigger(FootBallDetectedType.Up);
-        var rightFoot = actor.GetTriggerEnterObject(FootBallDetectedType.Right).CompareTag("RightFoot");
-        var leftFoot = actor.GetTriggerEnterObject(FootBallDetectedType.Left).CompareTag("LeftFoot");
+        actor.SetFootballKinematic(false);
+        
+        var upTrigger = actor.GetTrigger(FootBallDirectionDetectedType.Up);
+        var rightFoot = actor.GetTriggerEnterObject(FootBallDirectionDetectedType.Up).CompareTag("RightFoot");
+        var leftFoot = actor.GetTriggerEnterObject(FootBallDirectionDetectedType.Up).CompareTag("LeftFoot");
 
         if (upTrigger && !isEnter)
         {
+
             if (isRight)
             {
                 if (rightFoot)
