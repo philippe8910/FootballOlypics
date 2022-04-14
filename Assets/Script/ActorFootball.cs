@@ -22,21 +22,21 @@ public class ActorFootball : MonoBehaviour
         
     }
     
-    public bool GetTrigger(FootBallDirectionDetectedType listeningType)
+    public bool GetAreaTrigger(FootBallAreaType listeningType)
     {
         var output = false;
         
         switch (listeningType)
         {
-            case FootBallDirectionDetectedType.Up:
+            case FootBallAreaType.UpArea:
                 output = Physics.CheckSphere(GetUpTiggerPosition(), collisionRadius, footLayerMask);
                 break;
             
-            case FootBallDirectionDetectedType.Right:
+            case FootBallAreaType.RightArea:
                 output = Physics.CheckSphere(GetRightTiggerPosition(), collisionRadius, footLayerMask);
                 break;
 
-            case FootBallDirectionDetectedType.Left:
+            case FootBallAreaType.LeftArea:
                 output = Physics.CheckSphere(GetLeftTiggerPosition(), collisionRadius, footLayerMask);
                 break;
             
@@ -48,21 +48,21 @@ public class ActorFootball : MonoBehaviour
         return output;
     }
 
-    public GameObject GetTriggerEnterObject(FootBallDirectionDetectedType listeningType)
+    public GameObject GetTriggerEnterObject(FootBallAreaType listeningType)
     {
         var output = new Collider[]{};
 
         switch (listeningType)
         {
-            case FootBallDirectionDetectedType.Up:
+            case FootBallAreaType.UpArea:
                 output = Physics.OverlapSphere(GetUpTiggerPosition(), collisionRadius, footLayerMask);
                 break;
             
-            case FootBallDirectionDetectedType.Right:
+            case FootBallAreaType.RightArea:
                 output = Physics.OverlapSphere(GetRightTiggerPosition(), collisionRadius, footLayerMask);
                 break;
             
-            case FootBallDirectionDetectedType.Left:
+            case FootBallAreaType.LeftArea:
                 output = Physics.OverlapSphere(GetLeftTiggerPosition(), collisionRadius, footLayerMask);
                 break;
         }
@@ -75,6 +75,36 @@ public class ActorFootball : MonoBehaviour
         {
             return null;
         }
+    }
+    
+    public bool GetTriggerEnterObject(FootBallAreaType listeningType , FootType footType)
+    {
+        var _colliders = new Collider[]{};
+
+        switch (listeningType)
+        {
+            case FootBallAreaType.UpArea:
+                _colliders = Physics.OverlapSphere(GetUpTiggerPosition(), collisionRadius, footLayerMask);
+                break;
+            
+            case FootBallAreaType.RightArea:
+                _colliders = Physics.OverlapSphere(GetRightTiggerPosition(), collisionRadius, footLayerMask);
+                break;
+            
+            case FootBallAreaType.LeftArea:
+                _colliders = Physics.OverlapSphere(GetLeftTiggerPosition(), collisionRadius, footLayerMask);
+                break;
+        }
+
+        if (footType == FootType.RightFoot)
+        {
+            return _colliders[0].CompareTag("RightFoot");
+        }
+        else
+        {
+            return _colliders[0].CompareTag("LeftFoot");
+        }
+        
     }
 
     public float GetTriggerRadius()
