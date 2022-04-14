@@ -22,7 +22,7 @@ public class ActorFootball : MonoBehaviour
         
     }
     
-    public bool GetAreaTrigger(FootBallAreaType listeningType)
+    public bool GetAreaTrigger(FootBallAreaType listeningType) //足球的相對位置是否觸發
     {
         var output = false;
         
@@ -48,7 +48,7 @@ public class ActorFootball : MonoBehaviour
         return output;
     }
 
-    public GameObject GetTriggerEnterObject(FootBallAreaType listeningType)
+    public GameObject GetTriggerEnterObject(FootBallAreaType listeningType) //觸發的物件 不分腳
     {
         var output = new Collider[]{};
 
@@ -77,7 +77,7 @@ public class ActorFootball : MonoBehaviour
         }
     }
     
-    public bool GetTriggerEnterObject(FootBallAreaType listeningType , FootType footType)
+    public bool GetTriggerEnterObject(FootBallAreaType listeningType , FootType footType) //觸發的物件 判斷是哪個腳
     {
         var _colliders = new Collider[]{};
 
