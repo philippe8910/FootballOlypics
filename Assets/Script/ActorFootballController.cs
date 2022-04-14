@@ -25,18 +25,15 @@ public class ActorFootballController : MonoBehaviour
 
     private void OnBallSteppingActionDetected(BallSteppingActionDetected obj)
     {
-        actor.SetFootballKinematic(false);
-        
         var upTrigger = actor.GetTrigger(FootBallDirectionDetectedType.Up);
-        var rightFoot = actor.GetTriggerEnterObject(FootBallDirectionDetectedType.Up).CompareTag("RightFoot");
-        var leftFoot = actor.GetTriggerEnterObject(FootBallDirectionDetectedType.Up).CompareTag("LeftFoot");
+        var rightFoot = actor.GetTriggerEnterObject(FootBallDirectionDetectedType.Up);
+        var leftFoot = actor.GetTriggerEnterObject(FootBallDirectionDetectedType.Up);
 
         if (upTrigger && !isEnter)
         {
-
             if (isRight)
             {
-                if (rightFoot)
+                if (rightFoot.CompareTag("RightFoot"))
                 {
                     BallSteppingActionScore();
                 }
@@ -47,7 +44,7 @@ public class ActorFootballController : MonoBehaviour
             }
             else
             {
-                if (leftFoot)
+                if (leftFoot.CompareTag("LeftFoot"))
                 {
                     BallSteppingActionScore();
                 }

@@ -21,11 +21,6 @@ public class ActorFootball : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         
     }
-
-    public void SetFootballKinematic(bool _isKinematic)
-    {
-        rigidbody.isKinematic = _isKinematic;
-    }
     
     public bool GetTrigger(FootBallDirectionDetectedType listeningType)
     {
