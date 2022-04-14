@@ -96,15 +96,22 @@ public class ActorFootball : MonoBehaviour
                 break;
         }
 
-        if (footType == FootType.RightFoot)
+        if (_colliders.Length != 0)
         {
-            return _colliders[0].CompareTag("RightFoot");
+            if (footType == FootType.RightFoot)
+            {
+                return _colliders[0].CompareTag("RightFoot");
+            }
+            else
+            {
+                return _colliders[0].CompareTag("LeftFoot");
+            }
         }
         else
         {
-            return _colliders[0].CompareTag("LeftFoot");
+            return false;
         }
-        
+
     }
 
     public float GetTriggerRadius()
