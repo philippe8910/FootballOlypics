@@ -55,6 +55,7 @@ namespace Project{
 		public static void Post<T>(T obj){
 			var type = typeof(T);
 			var containsKey = NonCallbackActions.ContainsKey(type);
+			
 			if(containsKey)
 			{
 				var actions = NonCallbackActions[type];

@@ -21,6 +21,14 @@ public class ActorFootballController : MonoBehaviour
     {
         actor = GetComponent<ActorFootball>();
         EventBus.Subscribe<BallSteppingActionDetected>(OnBallSteppingActionDetected);
+        EventBus.Subscribe<InsideRightSideOfSeatDetected>(OnInsideRightSideOfSeatDetected);
+    }
+
+    private void OnInsideRightSideOfSeatDetected(InsideRightSideOfSeatDetected obj)
+    { 
+        
+        
+        
     }
 
     private void OnBallSteppingActionDetected(BallSteppingActionDetected obj)

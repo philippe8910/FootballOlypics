@@ -21,6 +21,11 @@ public class LevelService : MonoBehaviour
         {
             EventBus.Post(new BallSteppingActionDetected());
         }
+
+        if (footLevels == FootLevels.InsideRightSideOfSeat)
+        {
+            EventBus.Post(new InsideRightSideOfSeatDetected());
+        }
         
     }
 }
