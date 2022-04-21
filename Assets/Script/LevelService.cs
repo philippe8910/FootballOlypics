@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class LevelService : MonoBehaviour
 {
-    [SerializeField] private FootLevels footLevels = FootLevels.Defult;
+    [SerializeField] private FootLevels currentFootLevels = FootLevels.Defult;
     
     // Start is called before the first frame update
     void Start()
@@ -17,12 +17,12 @@ public class LevelService : MonoBehaviour
 
     private void Update()
     {
-        if (footLevels == FootLevels.BallSteppingAction)
+        if (currentFootLevels == FootLevels.BallSteppingAction)
         {
             EventBus.Post(new BallSteppingActionDetected());
         }
 
-        if (footLevels == FootLevels.InsideRightSideOfSeat)
+        if (currentFootLevels == FootLevels.InsideRightSideOfSeat)
         {
             EventBus.Post(new InsideRightSideOfSeatDetected());
         }

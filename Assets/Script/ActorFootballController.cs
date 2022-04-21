@@ -22,20 +22,22 @@ public class ActorFootballController : MonoBehaviour
         EventBus.Subscribe<BallSteppingActionDetected>(OnBallSteppingActionDetected);
         EventBus.Subscribe<InsideRightSideOfSeatDetected>(OnInsideRightSideOfSeatDetected);
     }
-
+        
+    //TODO
+    
     private void OnInsideRightSideOfSeatDetected(InsideRightSideOfSeatDetected obj)
     {
         var rightAreaTrigger = actor.GetAreaTrigger(FootBallAreaType.RightArea);
         var leftAreaTrigger = actor.GetAreaTrigger(FootBallAreaType.LeftArea);
 
-        var rightTrigger = actor.GetTriggerEnterObject(FootBallAreaType.RightArea, FootType.RightFoot);
-        var leftTrigger = actor.GetTriggerEnterObject(FootBallAreaType.LeftArea, FootType.LeftFoot);
+        var rightFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.RightArea, FootType.RightFoot);
+        var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.LeftArea, FootType.LeftFoot);
 
         if (rightAreaTrigger && !isEnter)
         {
             if (isRight)
             {
-                if (rightTrigger)
+                if (rightFootTrigger)
                 {
                     InsideRightSideOfSeatScoreAction();
                 }
@@ -51,7 +53,7 @@ public class ActorFootballController : MonoBehaviour
         {
             if (!isRight)
             {
-                if (leftTrigger)
+                if (leftFootTrigger)
                 {
                     InsideRightSideOfSeatScoreAction();
                 }
@@ -65,17 +67,20 @@ public class ActorFootballController : MonoBehaviour
         if (!leftAreaTrigger && !rightAreaTrigger) isEnter = false;
     }
     
+    //TODO 
+    
     private void OnBallSteppingActionDetected(BallSteppingActionDetected obj)
     {
-        var upTrigger = actor.GetAreaTrigger(FootBallAreaType.UpArea);
-        var rightTrigger = actor.GetTriggerEnterObject(FootBallAreaType.UpArea , FootType.RightFoot);
-        var leftTrigger = actor.GetTriggerEnterObject(FootBallAreaType.UpArea , FootType.LeftFoot);
+        var upAreaTrigger = actor.GetAreaTrigger(FootBallAreaType.UpArea);
+        
+        var rightFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.UpArea , FootType.RightFoot);
+        var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.UpArea , FootType.LeftFoot);
 
-        if (upTrigger && !isEnter)
+        if (upAreaTrigger && !isEnter)
         {
             if (isRight)
             {
-                if (rightTrigger)
+                if (rightFootTrigger)
                 {
                     BallSteppingActionScore();
                 }
@@ -86,7 +91,7 @@ public class ActorFootballController : MonoBehaviour
             }
             else
             {
-                if (leftTrigger)
+                if (leftFootTrigger)
                 {
                     BallSteppingActionScore();
                 }
@@ -99,7 +104,7 @@ public class ActorFootballController : MonoBehaviour
             isEnter = true;
         }
 
-        if (!upTrigger) isEnter = false;
+        if (!upAreaTrigger) isEnter = false;
     }
 
     private void BallSteppingActionScore()
