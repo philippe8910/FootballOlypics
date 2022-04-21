@@ -13,7 +13,7 @@ public class ActorFootballController : MonoBehaviour
     
     private int BallSteppingActionCount = 0;
 
-    [SerializeField] private bool isRight;
+    [SerializeField] private bool isRightSide;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,7 @@ public class ActorFootballController : MonoBehaviour
 
         if (rightAreaTrigger && !isEnter)
         {
-            if (isRight)
+            if (isRightSide)
             {
                 if (rightFootTrigger)
                 {
@@ -51,7 +51,7 @@ public class ActorFootballController : MonoBehaviour
 
         if (leftAreaTrigger && !isEnter)
         {
-            if (!isRight)
+            if (!isRightSide)
             {
                 if (leftFootTrigger)
                 {
@@ -78,7 +78,7 @@ public class ActorFootballController : MonoBehaviour
 
         if (upAreaTrigger && !isEnter)
         {
-            if (isRight)
+            if (isRightSide)
             {
                 if (rightFootTrigger)
                 {
@@ -109,7 +109,7 @@ public class ActorFootballController : MonoBehaviour
 
     private void BallSteppingActionScore()
     {
-        isRight = !isRight; 
+        isRightSide = !isRightSide; 
         BallSteppingActionCount++;
         EventBus.Post(new BallSteppingScoreDetedted(BallSteppingActionCount));
     }
@@ -126,7 +126,7 @@ public class ActorFootballController : MonoBehaviour
 
     private void InsideRightSideOfSeatScoreAction()
     {
-        isRight = !isRight;
+        isRightSide = !isRightSide;
         Debug.Log("Score");
     }
 

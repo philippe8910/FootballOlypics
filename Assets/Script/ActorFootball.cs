@@ -48,22 +48,22 @@ public class ActorFootball : MonoBehaviour
         return output;
     }
 
-    public GameObject GetTriggerEnterObject(FootBallAreaType listeningType) //觸發的物件 不分腳
+    public GameObject GetTriggerEnterObject(FootBallAreaType listeningType) //觸發的物件 不分類物件
     {
         var output = new Collider[]{};
 
         switch (listeningType)
         {
             case FootBallAreaType.UpArea:
-                output = Physics.OverlapSphere(GetUpTiggerPosition(), collisionRadius, footLayerMask);
+                output = Physics.OverlapSphere(GetUpTiggerPosition(), collisionRadius);
                 break;
             
             case FootBallAreaType.RightArea:
-                output = Physics.OverlapSphere(GetRightTiggerPosition(), collisionRadius, footLayerMask);
+                output = Physics.OverlapSphere(GetRightTiggerPosition(), collisionRadius);
                 break;
             
             case FootBallAreaType.LeftArea:
-                output = Physics.OverlapSphere(GetLeftTiggerPosition(), collisionRadius, footLayerMask);
+                output = Physics.OverlapSphere(GetLeftTiggerPosition(), collisionRadius);
                 break;
         }
 
