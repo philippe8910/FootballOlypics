@@ -10,11 +10,10 @@ public class ActorFootballController : MonoBehaviour
     private ActorFootball actor;
 
     private bool isEnter;
+    
+    private int BallSteppingActionCount = 0;
 
     [SerializeField] private bool isRight;
-    
-    [SerializeField] private int BallSteppingActionCount = 0;
-    
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +24,47 @@ public class ActorFootballController : MonoBehaviour
     }
 
     private void OnInsideRightSideOfSeatDetected(InsideRightSideOfSeatDetected obj)
-    { 
-        
-        
-        
-    }
+    {
+        var rightAreaTrigger = actor.GetAreaTrigger(FootBallAreaType.RightArea);
+        var leftAreaTrigger = actor.GetAreaTrigger(FootBallAreaType.LeftArea);
 
+        var rightTrigger = actor.GetTriggerEnterObject(FootBallAreaType.RightArea, FootType.RightFoot);
+        var leftTrigger = actor.GetTriggerEnterObject(FootBallAreaType.LeftArea, FootType.LeftFoot);
+
+        if (rightAreaTrigger && !isEnter)
+        {
+            if (isRight)
+            {
+                if (rightTrigger)
+                {
+                    InsideRightSideOfSeatScoreAction();
+                }
+                else
+                {
+                    InsideRightSideOfSeatPunishmentsAction();
+                }
+            }
+            isEnter = true;
+        }
+
+        if (leftAreaTrigger && !isEnter)
+        {
+            if (!isRight)
+            {
+                if (leftTrigger)
+                {
+                    InsideRightSideOfSeatScoreAction();
+                }
+                else
+                {
+                    InsideRightSideOfSeatPunishmentsAction();
+                }
+            }
+        }
+
+        if (!leftAreaTrigger && !rightAreaTrigger) isEnter = false;
+    }
+    
     private void OnBallSteppingActionDetected(BallSteppingActionDetected obj)
     {
         var upTrigger = actor.GetAreaTrigger(FootBallAreaType.UpArea);
@@ -70,13 +104,25 @@ public class ActorFootballController : MonoBehaviour
 
     private void BallSteppingActionScore()
     {
-        isRight = !isRight;
+        isRight = !isRight; 
         BallSteppingActionCount++;
+        EventBus.Post(new BallSteppingScoreDetedted(BallSteppingActionCount));
     }
 
     private void BallSteppingActionInputWrongFoot()
     {
         Debug.LogWarning("Wrong Foot");
+    }
+    
+    private void InsideRightSideOfSeatPunishmentsAction()
+    {
+        Debug.LogWarning("Wrong Foot");
+    }
+
+    private void InsideRightSideOfSeatScoreAction()
+    {
+        isRight = !isRight;
+        Debug.Log("Score");
     }
 
 }

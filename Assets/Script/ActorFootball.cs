@@ -14,7 +14,7 @@ public class ActorFootball : MonoBehaviour
     
     [BoxGroup]
     
-    [SerializeField] private Vector3 upOffect, rightOffect, leftOffect;
+    [SerializeField] private Vector3 upOffset, rightOffset, leftOffset;
     
     void Start()
     {
@@ -121,17 +121,17 @@ public class ActorFootball : MonoBehaviour
     
     public Vector3 GetUpTiggerPosition()
     {
-        return transform.position + upOffect;
+        return transform.position + upOffset;
     }
     
     public Vector3 GetRightTiggerPosition()
     {
-        return transform.position + rightOffect;
+        return transform.position + rightOffset;
     }
     
     public Vector3 GetLeftTiggerPosition()
     {
-        return transform.position + leftOffect;
+        return transform.position + leftOffset;
     }
     
     
