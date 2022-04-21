@@ -21,8 +21,59 @@ public class ActorFootballController : MonoBehaviour
         actor = GetComponent<ActorFootball>();
         EventBus.Subscribe<BallSteppingActionDetected>(OnBallSteppingActionDetected);
         EventBus.Subscribe<InsideRightSideOfSeatDetected>(OnInsideRightSideOfSeatDetected);
+        EventBus.Subscribe<OutsideKickActionDetected>(OnOutsideKickActionDetected);
+        EventBus.Subscribe<FreeKickTimeDetected>(OnFreeKickTimeDetected);
     }
+
+    private void OnFreeKickTimeDetected(FreeKickTimeDetected obj)
+    {
         
+    }
+
+    //TODO
+
+    private void OnOutsideKickActionDetected(OutsideKickActionDetected obj)
+    {
+        var rightAreaTrigger = actor.GetAreaTrigger(FootBallAreaType.RightArea);
+        var leftAreaTrigger = actor.GetAreaTrigger(FootBallAreaType.LeftArea);
+
+        var rightFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.RightArea, FootType.LeftFoot);
+        var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.LeftArea, FootType.RightFoot);
+        
+        if (rightAreaTrigger && !isEnter)
+        {
+            if (isRightSide)
+            {
+                if (rightFootTrigger)
+                {
+                    InsideRightSideOfSeatScoreAction();
+                }
+                else
+                {
+                    InsideRightSideOfSeatPunishmentsAction();
+                }
+            }
+            isEnter = true;
+        }
+
+        if (leftAreaTrigger && !isEnter)
+        {
+            if (!isRightSide)
+            {
+                if (leftFootTrigger)
+                {
+                    InsideRightSideOfSeatScoreAction();
+                }
+                else
+                {
+                    InsideRightSideOfSeatPunishmentsAction();
+                }
+            }
+        }
+
+        if (!leftAreaTrigger && !rightAreaTrigger) isEnter = false;
+    }
+
     //TODO
     
     private void OnInsideRightSideOfSeatDetected(InsideRightSideOfSeatDetected obj)
@@ -128,6 +179,23 @@ public class ActorFootballController : MonoBehaviour
     {
         isRightSide = !isRightSide;
         Debug.Log("Score");
+    }
+    
+    //TODO
+
+    private void OnTriggerEnterArea()
+    {
+        
+    }
+
+    private void OnTriggerStayArea()
+    {
+        
+    }
+
+    private void OnTriggerExitArea()
+    {
+        
     }
 
 }

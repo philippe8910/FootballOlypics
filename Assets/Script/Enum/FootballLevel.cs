@@ -6,7 +6,9 @@ public enum FootLevels
 {
     Defult,
     BallSteppingAction,
-    InsideRightSideOfSeat
+    InsideRightSideOfSeat,
+    OutsideKick,
+    FreeKickTime
 }
 
 public enum FootBallAreaType
@@ -14,6 +16,7 @@ public enum FootBallAreaType
     RightArea,
     LeftArea,
     UpArea,
+    AllArea
 }
 
 public enum FootType

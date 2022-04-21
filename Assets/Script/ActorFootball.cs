@@ -21,6 +21,11 @@ public class ActorFootball : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         
     }
+
+    public void Kick(Vector3 force , float power)
+    {
+        rigidbody.AddForce(force * power , ForceMode.Impulse);
+    }
     
     public bool GetAreaTrigger(FootBallAreaType listeningType) //足球的相對位置是否觸發
     {
@@ -64,6 +69,10 @@ public class ActorFootball : MonoBehaviour
             
             case FootBallAreaType.LeftArea:
                 output = Physics.OverlapSphere(GetLeftTiggerPosition(), collisionRadius);
+                break;
+            
+            case FootBallAreaType.AllArea:
+                output = Physics.OverlapSphere(transform.position, collisionRadius * 1.8f);
                 break;
         }
 
@@ -138,7 +147,9 @@ public class ActorFootball : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-
+        
+        
+        Gizmos.DrawWireSphere(transform.position , GetTriggerRadius()  * 1.8f);
         Gizmos.DrawWireSphere(GetUpTiggerPosition() , GetTriggerRadius());
         Gizmos.DrawWireSphere(GetRightTiggerPosition() , GetTriggerRadius());
         Gizmos.DrawWireSphere(GetLeftTiggerPosition() , GetTriggerRadius());

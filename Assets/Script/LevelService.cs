@@ -26,6 +26,11 @@ public class LevelService : MonoBehaviour
         {
             EventBus.Post(new InsideRightSideOfSeatDetected());
         }
+
+        if (currentFootLevels == FootLevels.OutsideKick)
+        {
+            EventBus.Post(new OutsideKickActionDetected());
+        }
         
     }
 }
