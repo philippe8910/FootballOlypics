@@ -32,5 +32,10 @@ public class LevelService : MonoBehaviour
             EventBus.Post(new OutsideKickActionDetected());
         }
         
+        if (currentFootLevels == FootLevels.FreeKickTime)
+        {
+            EventBus.Post(new FreeKickTimeDetected());
+        }
+        
     }
 }

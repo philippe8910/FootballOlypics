@@ -24,10 +24,25 @@ public class ActorFootballController : MonoBehaviour
         EventBus.Subscribe<OutsideKickActionDetected>(OnOutsideKickActionDetected);
         EventBus.Subscribe<FreeKickTimeDetected>(OnFreeKickTimeDetected);
     }
+    
+    //TODO
 
     private void OnFreeKickTimeDetected(FreeKickTimeDetected obj)
     {
-        
+        var allAreaTrigger = actor.GetAreaTrigger(FootBallAreaType.AllArea);
+
+        if (allAreaTrigger && !isEnter)
+        {
+            var allAreaEnterObject = actor.GetTriggerEnterObject(FootBallAreaType.AllArea);
+            var footBallFlyDir = actor.GetCollisionVector(allAreaEnterObject.transform.position);
+            
+            print("footBallFlyDir" + footBallFlyDir);
+
+            actor.Kick(footBallFlyDir, 10);
+            isEnter = true;
+        }
+
+        if (!allAreaTrigger) isEnter = false;
     }
 
     //TODO
@@ -178,6 +193,8 @@ public class ActorFootballController : MonoBehaviour
     private void InsideRightSideOfSeatScoreAction()
     {
         isRightSide = !isRightSide;
+        BallSteppingActionCount++;
+        EventBus.Post(new BallSteppingScoreDetedted(BallSteppingActionCount));
         Debug.Log("Score");
     }
     

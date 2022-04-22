@@ -7,6 +7,8 @@ using UnityEngine;
 public class ActorFootball : MonoBehaviour
 {
     [SerializeField] private float collisionRadius;
+
+    [SerializeField] private float allAreaFixed;
     
     [SerializeField] private Rigidbody rigidbody;
     
@@ -22,10 +24,11 @@ public class ActorFootball : MonoBehaviour
         
     }
 
-    public void Kick(Vector3 force , float power)
+    public void Kick(Vector3 CollisionVector , float force)
     {
-        rigidbody.AddForce(force * power , ForceMode.Impulse);
+        rigidbody.AddForce(CollisionVector * force , ForceMode.Impulse);
     }
+    
     
     public bool GetAreaTrigger(FootBallAreaType listeningType) //足球的相對位置是否觸發
     {
@@ -45,6 +48,10 @@ public class ActorFootball : MonoBehaviour
                 output = Physics.CheckSphere(GetLeftTiggerPosition(), collisionRadius, footLayerMask);
                 break;
             
+            case FootBallAreaType.AllArea:
+                output = Physics.CheckSphere(transform.position, collisionRadius * allAreaFixed , footLayerMask);
+                break;
+            
             default:
                 Debug.LogError("Wrong Type!!!");
                 break;
@@ -60,19 +67,19 @@ public class ActorFootball : MonoBehaviour
         switch (listeningType)
         {
             case FootBallAreaType.UpArea:
-                output = Physics.OverlapSphere(GetUpTiggerPosition(), collisionRadius);
+                output = Physics.OverlapSphere(GetUpTiggerPosition(), collisionRadius,footLayerMask);
                 break;
             
             case FootBallAreaType.RightArea:
-                output = Physics.OverlapSphere(GetRightTiggerPosition(), collisionRadius);
+                output = Physics.OverlapSphere(GetRightTiggerPosition(), collisionRadius,footLayerMask);
                 break;
             
             case FootBallAreaType.LeftArea:
-                output = Physics.OverlapSphere(GetLeftTiggerPosition(), collisionRadius);
+                output = Physics.OverlapSphere(GetLeftTiggerPosition(), collisionRadius,footLayerMask);
                 break;
             
             case FootBallAreaType.AllArea:
-                output = Physics.OverlapSphere(transform.position, collisionRadius * 1.8f);
+                output = Physics.OverlapSphere(transform.position, collisionRadius * allAreaFixed, footLayerMask);
                 break;
         }
 
@@ -123,6 +130,9 @@ public class ActorFootball : MonoBehaviour
 
     }
 
+    
+    
+
     public float GetTriggerRadius()
     {
         return collisionRadius;
@@ -142,14 +152,23 @@ public class ActorFootball : MonoBehaviour
     {
         return transform.position + leftOffset;
     }
-    
+
+    public Vector3 GetAllAreaTriggerPosition()
+    {
+        return transform.position;
+    }
+
+    public Vector3 GetCollisionVector(Vector3 input)
+    {
+        return (transform.position - input).normalized;
+    }
     
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         
         
-        Gizmos.DrawWireSphere(transform.position , GetTriggerRadius()  * 1.8f);
+        Gizmos.DrawWireSphere(transform.position , GetTriggerRadius()  * allAreaFixed);
         Gizmos.DrawWireSphere(GetUpTiggerPosition() , GetTriggerRadius());
         Gizmos.DrawWireSphere(GetRightTiggerPosition() , GetTriggerRadius());
         Gizmos.DrawWireSphere(GetLeftTiggerPosition() , GetTriggerRadius());
