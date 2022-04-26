@@ -31,6 +31,8 @@ public class ActorFootballController : MonoBehaviour
     {
         var allAreaTrigger = actor.GetAreaTrigger(FootBallAreaType.AllArea);
 
+        actor.SetKinematic(true);
+
         if (allAreaTrigger && !isEnter)
         {
             var allAreaEnterObject = actor.GetTriggerEnterObject(FootBallAreaType.AllArea);
@@ -55,6 +57,8 @@ public class ActorFootballController : MonoBehaviour
         var rightFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.RightArea, FootType.LeftFoot);
         var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.LeftArea, FootType.RightFoot);
         
+        actor.SetKinematic(true);
+
         if (rightAreaTrigger && !isEnter)
         {
             if (isRightSide)
@@ -99,6 +103,8 @@ public class ActorFootballController : MonoBehaviour
         var rightFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.RightArea, FootType.RightFoot);
         var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.LeftArea, FootType.LeftFoot);
 
+        actor.SetKinematic(true);
+
         if (rightAreaTrigger && !isEnter)
         {
             if (isRightSide)
@@ -142,6 +148,8 @@ public class ActorFootballController : MonoBehaviour
         var rightFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.UpArea , FootType.RightFoot);
         var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.UpArea , FootType.LeftFoot);
 
+        actor.SetKinematic(false);
+        
         if (upAreaTrigger && !isEnter)
         {
             if (isRightSide)

@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class ActorFootball : MonoBehaviour
 {
+    [SerializeField] private bool isKinematic;
+    
     [SerializeField] private float collisionRadius;
 
     [SerializeField] private float allAreaFixed;
@@ -21,7 +23,6 @@ public class ActorFootball : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
-        
     }
 
     public void Kick(Vector3 CollisionVector , float force)
@@ -161,6 +162,16 @@ public class ActorFootball : MonoBehaviour
     public Vector3 GetCollisionVector(Vector3 input)
     {
         return (transform.position - input).normalized;
+    }
+
+    public bool GetKinematic()
+    {
+        return isKinematic;
+    }
+
+    public void SetKinematic(bool setKinematic)
+    {
+        isKinematic = setKinematic;
     }
     
     private void OnDrawGizmos()
