@@ -10,21 +10,34 @@ public class ActorFootballController : MonoBehaviour
     private ActorFootball actor;
 
     private bool isEnter;
-    
-    private int BallSteppingActionCount = 0;
+
+    private bool isStay;
+
+    [SerializeField] private bool isRight;
 
     [SerializeField] private bool isRightSide;
+    
+    [SerializeField] private int BallSteppingActionCount = 0;
+
+    [SerializeField] private float mutiplier;
 
     // Start is called before the first frame update
     void Start()
     {
         actor = GetComponent<ActorFootball>();
+        
         EventBus.Subscribe<BallSteppingActionDetected>(OnBallSteppingActionDetected);
         EventBus.Subscribe<InsideRightSideOfSeatDetected>(OnInsideRightSideOfSeatDetected);
         EventBus.Subscribe<OutsideKickActionDetected>(OnOutsideKickActionDetected);
         EventBus.Subscribe<FreeKickTimeDetected>(OnFreeKickTimeDetected);
+        EventBus.Subscribe<SlowMotionDetected>(OnSlowMotionDetected);
     }
-    
+
+    private void OnSlowMotionDetected(SlowMotionDetected obj)
+    {
+        
+    }
+
     //TODO
 
     private void OnFreeKickTimeDetected(FreeKickTimeDetected obj)
