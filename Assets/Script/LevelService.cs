@@ -9,12 +9,6 @@ public class LevelService : MonoBehaviour
 {
     [SerializeField] private FootLevels currentFootLevels = FootLevels.Defult;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     private void Update()
     {
         if (currentFootLevels == FootLevels.BallSteppingAction)

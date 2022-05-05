@@ -15,8 +15,7 @@ public class SlowMotionSystem : MonoBehaviour
 
     public virtual void OnSlowMotionDetected(SlowMotionDetected obj)
     {
-        var slowMotionMultiplier = obj.slowDownMultiplier;
-        Invoke("DefultSlowMotion" , recoverTime);
+        
     }
 
     private void DefultSlowMotion()

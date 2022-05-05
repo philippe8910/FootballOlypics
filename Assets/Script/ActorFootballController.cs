@@ -12,9 +12,7 @@ public class ActorFootballController : MonoBehaviour
     private bool isEnter;
 
     private bool isStay;
-
-    [SerializeField] private bool isRight;
-
+    
     [SerializeField] private bool isRightSide;
     
     [SerializeField] private int BallSteppingActionCount = 0;
@@ -70,7 +68,7 @@ public class ActorFootballController : MonoBehaviour
         var rightFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.RightArea, FootType.LeftFoot);
         var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.LeftArea, FootType.RightFoot);
         
-        actor.MoveAction(isRight);
+        actor.MoveAction(isRightSide);
         
         actor.SetKinematic(true);
 
@@ -118,7 +116,7 @@ public class ActorFootballController : MonoBehaviour
         var rightFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.RightArea, FootType.RightFoot);
         var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.LeftArea, FootType.LeftFoot);
 
-        actor.MoveAction(isRight);
+        actor.MoveAction(isRightSide);
         
 
         actor.SetKinematic(true);
@@ -220,13 +218,19 @@ public class ActorFootballController : MonoBehaviour
     {
         isRightSide = !isRightSide;
         BallSteppingActionCount++;
+        
+        actor.SetSlowVelocity(.3f , 2.5f);
+        
         EventBus.Post(new BallSteppingScoreDetedted(BallSteppingActionCount));
         Debug.Log("Score");
     }
 
     private void OutsideKickScoreAction()
     {
+        isRightSide = !isRightSide;
+        actor.SetSlowVelocity(.3f , 2.5f);
         
+        Debug.Log("Score");
     }
     
     private void OutsideKickPunishmentsAction()

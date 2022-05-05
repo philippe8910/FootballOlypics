@@ -2,11 +2,11 @@
 {
     public class SlowMotionDetected
     {
-        public float slowDownMultiplier;
+        public bool isSlowmotion;
 
-        public SlowMotionDetected(float _slowDownMultiplier)
+        public SlowMotionDetected(bool _isSlowmotion)
         {
-            slowDownMultiplier = _slowDownMultiplier;
+            isSlowmotion = _isSlowmotion;
         }
     }
 }

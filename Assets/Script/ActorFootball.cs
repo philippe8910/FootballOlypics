@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Project;
+using Project.Event;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -11,6 +14,8 @@ public class ActorFootball : MonoBehaviour
     [SerializeField] private float collisionRadius;
 
     [SerializeField] private float allAreaFixed;
+    
+    [SerializeField] private float mutiplier = 1;
     
     [SerializeField] private Rigidbody rigidbody;
     
@@ -174,20 +179,37 @@ public class ActorFootball : MonoBehaviour
         isKinematic = setKinematic;
     }
 
-    public void SetSlowVelocity(float _value)
-    { 
-        rigidbody.velocity *= _value;
+    //TODO 如果有其他IEnumerator記得把這個StopAllCoroutines改掉
+    public async void SetSlowVelocity(float _value, float slowMotionTime)
+    {
+        StopAllCoroutines();
+        StartCoroutine(StartSlowMotionTime( _value, slowMotionTime));
+    }
+
+    IEnumerator StartSlowMotionTime(float _value, float slowMotionTime)
+    {
+        Debug.Log("Before Slow");
+        
+        EventBus.Post(new SlowMotionDetected(true));
+        
+        mutiplier = _value;
+        yield return new WaitForSeconds(slowMotionTime);
+        mutiplier = 1;
+        
+        EventBus.Post(new SlowMotionDetected(false));
+
+        Debug.Log("After Slow");
     }
 
     public void MoveAction(bool isRight)
     {
         if (isRight)
         {
-            rigidbody.velocity = Vector3.right;
+            rigidbody.velocity = Vector3.right * mutiplier;
         }
         else
         {
-            rigidbody.velocity = Vector3.left;
+            rigidbody.velocity = Vector3.left * mutiplier;
         }
     }
     

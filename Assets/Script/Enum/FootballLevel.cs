@@ -5,9 +5,13 @@ using UnityEngine;
 public enum FootLevels
 {
     Defult,
+    BallSteppingActionTutorial,
     BallSteppingAction,
+    InsideRightSideOfSeatTutorial,
     InsideRightSideOfSeat,
+    OutsideKickTutorial,
     OutsideKick,
+    FreeKickTimeTutorial,
     FreeKickTime
 }
 
