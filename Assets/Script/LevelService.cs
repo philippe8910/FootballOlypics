@@ -8,7 +8,18 @@ using UnityEngine;
 public class LevelService : MonoBehaviour
 {
     [SerializeField] private FootLevels currentFootLevels = FootLevels.Defult;
-    
+
+    private void Start()
+    {
+        EventBus.Subscribe<ChangeLevelDetected>(OnChangeLevelDetected);
+    }
+
+    private void OnChangeLevelDetected(ChangeLevelDetected obj)
+    {
+        var currentLevel = obj.currentFootLevels;
+        currentFootLevels = currentLevel;
+    }
+
     private void Update()
     {
         if (currentFootLevels == FootLevels.BallSteppingAction)
