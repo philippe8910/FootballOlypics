@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Project;
 using Project.Event;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class LevelService : MonoBehaviour
@@ -42,5 +43,11 @@ public class LevelService : MonoBehaviour
             EventBus.Post(new FreeKickTimeDetected());
         }
         
+    }
+
+    [Button]
+    public void ChangeAction()
+    {
+        EventBus.Post(new ChangeLevelDetected(currentFootLevels));
     }
 }

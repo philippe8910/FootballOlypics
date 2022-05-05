@@ -16,9 +16,7 @@ public class ActorFootballController : MonoBehaviour
     [SerializeField] private bool isRightSide;
     
     [SerializeField] private int BallSteppingActionCount = 0;
-
-    [SerializeField] private float mutiplier;
-
+    
     // Start is called before the first frame update
     void Start()
     {
