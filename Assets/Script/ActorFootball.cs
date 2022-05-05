@@ -173,6 +173,23 @@ public class ActorFootball : MonoBehaviour
     {
         isKinematic = setKinematic;
     }
+
+    public void SetSlowVelocity(float _value)
+    { 
+        rigidbody.velocity *= _value;
+    }
+
+    public void MoveAction(bool isRight)
+    {
+        if (isRight)
+        {
+            rigidbody.velocity = Vector3.right;
+        }
+        else
+        {
+            rigidbody.velocity = Vector3.left;
+        }
+    }
     
     private void OnDrawGizmos()
     {

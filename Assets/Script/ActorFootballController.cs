@@ -70,6 +70,8 @@ public class ActorFootballController : MonoBehaviour
         var rightFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.RightArea, FootType.LeftFoot);
         var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.LeftArea, FootType.RightFoot);
         
+        actor.MoveAction(isRight);
+        
         actor.SetKinematic(true);
 
         if (rightAreaTrigger && !isEnter)
@@ -78,11 +80,11 @@ public class ActorFootballController : MonoBehaviour
             {
                 if (rightFootTrigger)
                 {
-                    InsideRightSideOfSeatScoreAction();
+                    OutsideKickScoreAction();
                 }
                 else
                 {
-                    InsideRightSideOfSeatPunishmentsAction();
+                    OutsideKickPunishmentsAction();
                 }
             }
             isEnter = true;
@@ -94,11 +96,11 @@ public class ActorFootballController : MonoBehaviour
             {
                 if (leftFootTrigger)
                 {
-                    InsideRightSideOfSeatScoreAction();
+                    OutsideKickScoreAction();
                 }
                 else
                 {
-                    InsideRightSideOfSeatPunishmentsAction();
+                    OutsideKickPunishmentsAction();
                 }
             }
         }
@@ -115,6 +117,9 @@ public class ActorFootballController : MonoBehaviour
 
         var rightFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.RightArea, FootType.RightFoot);
         var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.LeftArea, FootType.LeftFoot);
+
+        actor.MoveAction(isRight);
+        
 
         actor.SetKinematic(true);
 
@@ -217,6 +222,16 @@ public class ActorFootballController : MonoBehaviour
         BallSteppingActionCount++;
         EventBus.Post(new BallSteppingScoreDetedted(BallSteppingActionCount));
         Debug.Log("Score");
+    }
+
+    private void OutsideKickScoreAction()
+    {
+        
+    }
+    
+    private void OutsideKickPunishmentsAction()
+    {
+        
     }
     
     //TODO
