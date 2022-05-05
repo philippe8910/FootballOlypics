@@ -9,8 +9,6 @@ using UnityEngine;
 
 public class ActorFootball : MonoBehaviour
 {
-    [SerializeField] private bool isKinematic;
-    
     [SerializeField] private float collisionRadius;
 
     [SerializeField] private float allAreaFixed;
@@ -171,12 +169,17 @@ public class ActorFootball : MonoBehaviour
 
     public bool GetKinematic()
     {
-        return isKinematic;
+        return rigidbody.isKinematic;
     }
 
     public void SetKinematic(bool setKinematic)
     {
-        isKinematic = setKinematic;
+        rigidbody.isKinematic = setKinematic;
+    }
+
+    public void SetConstranit(RigidbodyConstraints targetConstraints)
+    {
+        rigidbody.constraints = targetConstraints;
     }
 
     //TODO 如果有其他IEnumerator記得把這個StopAllCoroutines改掉

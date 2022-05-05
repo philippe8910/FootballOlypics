@@ -15,7 +15,7 @@ public class ActorFootballController : MonoBehaviour
     
     [SerializeField] private bool isRightSide;
     
-    [SerializeField] private int BallSteppingActionCount = 0;
+    [SerializeField] private int ballSteppingActionCount = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -40,7 +40,8 @@ public class ActorFootballController : MonoBehaviour
     {
         var allAreaTrigger = actor.GetAreaTrigger(FootBallAreaType.AllArea);
 
-        actor.SetKinematic(true);
+        actor.SetKinematic(false);
+        actor.SetConstranit(RigidbodyConstraints.None);
 
         if (allAreaTrigger && !isEnter)
         {
@@ -68,7 +69,7 @@ public class ActorFootballController : MonoBehaviour
         
         actor.MoveAction(isRightSide);
         
-        actor.SetKinematic(true);
+        actor.SetKinematic(false);
 
         if (rightAreaTrigger && !isEnter)
         {
@@ -117,7 +118,7 @@ public class ActorFootballController : MonoBehaviour
         actor.MoveAction(isRightSide);
         
 
-        actor.SetKinematic(true);
+        actor.SetKinematic(false);
 
         if (rightAreaTrigger && !isEnter)
         {
@@ -162,7 +163,7 @@ public class ActorFootballController : MonoBehaviour
         var rightFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.UpArea , FootType.RightFoot);
         var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.UpArea , FootType.LeftFoot);
 
-        actor.SetKinematic(false);
+        actor.SetKinematic(true);
         
         if (upAreaTrigger && !isEnter)
         {
@@ -197,9 +198,19 @@ public class ActorFootballController : MonoBehaviour
 
     private void BallSteppingActionScore()
     {
-        isRightSide = !isRightSide; 
-        BallSteppingActionCount++;
-        EventBus.Post(new BallSteppingScoreDetedted(BallSteppingActionCount));
+        isRightSide = !isRightSide;
+
+        if (ballSteppingActionCount >= 20)
+        {
+            ballSteppingActionCount = 0;
+            EventBus.Post(new BallSteppingScoreDetedted(ballSteppingActionCount));
+            EventBus.Post(new ChangeLevelDetected(FootLevels.InsideRightSideOfSeatTutorial));
+        }
+        else
+        {
+            ballSteppingActionCount++;
+            EventBus.Post(new BallSteppingScoreDetedted(ballSteppingActionCount));
+        }
     }
 
     private void BallSteppingActionInputWrongFoot()
@@ -215,20 +226,39 @@ public class ActorFootballController : MonoBehaviour
     private void InsideRightSideOfSeatScoreAction()
     {
         isRightSide = !isRightSide;
-        BallSteppingActionCount++;
         
-        actor.SetSlowVelocity(.3f , 2.5f);
-        
-        EventBus.Post(new BallSteppingScoreDetedted(BallSteppingActionCount));
-        Debug.Log("Score");
+        if (ballSteppingActionCount >= 20)
+        {
+            ballSteppingActionCount = 0;
+            EventBus.Post(new BallSteppingScoreDetedted(ballSteppingActionCount));
+            EventBus.Post(new ChangeLevelDetected(FootLevels.OutsideKickTutorial));
+        }
+        else
+        {
+            actor.SetSlowVelocity(0.3f , 2f);
+            
+            ballSteppingActionCount++;
+            EventBus.Post(new BallSteppingScoreDetedted(ballSteppingActionCount));
+        }
     }
 
     private void OutsideKickScoreAction()
     {
         isRightSide = !isRightSide;
-        actor.SetSlowVelocity(.3f , 2.5f);
         
-        Debug.Log("Score");
+        if (ballSteppingActionCount >= 20)
+        {
+            ballSteppingActionCount = 0;
+            EventBus.Post(new BallSteppingScoreDetedted(ballSteppingActionCount));
+            EventBus.Post(new ChangeLevelDetected(FootLevels.FreeKickTimeTutorial));
+        }
+        else
+        {
+            actor.SetSlowVelocity(0.3f , 2f);
+            
+            ballSteppingActionCount++;
+            EventBus.Post(new BallSteppingScoreDetedted(ballSteppingActionCount));
+        }
     }
     
     private void OutsideKickPunishmentsAction()
