@@ -26,14 +26,8 @@ public class ActorFootballController : MonoBehaviour
         EventBus.Subscribe<InsideRightSideOfSeatDetected>(OnInsideRightSideOfSeatDetected);
         EventBus.Subscribe<OutsideKickActionDetected>(OnOutsideKickActionDetected);
         EventBus.Subscribe<FreeKickTimeDetected>(OnFreeKickTimeDetected);
-        EventBus.Subscribe<SlowMotionDetected>(OnSlowMotionDetected);
     }
-
-    private void OnSlowMotionDetected(SlowMotionDetected obj)
-    {
-        
-    }
-
+    
     //TODO
 
     private void OnFreeKickTimeDetected(FreeKickTimeDetected obj)
