@@ -6,6 +6,8 @@ TagManager:
   tags:
   - LeftFoot
   - RightFoot
+  - FootBall
+  - ResetArea
   layers:
   - Default
   - TransparentFX

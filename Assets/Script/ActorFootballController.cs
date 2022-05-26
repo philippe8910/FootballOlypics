@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Project;
 using Project.Event;
@@ -12,6 +13,8 @@ public class ActorFootballController : MonoBehaviour
     private bool isEnter;
 
     private bool isStay;
+
+    private bool isFirstEnter;
     
     [SerializeField] private bool isRightSide;
     
@@ -22,12 +25,19 @@ public class ActorFootballController : MonoBehaviour
     {
         actor = GetComponent<ActorFootball>();
         
+        EventBus.Subscribe<ChangeLevelDetected>(OnChangeLevelDetected);
+        
         EventBus.Subscribe<BallSteppingActionDetected>(OnBallSteppingActionDetected);
         EventBus.Subscribe<InsideRightSideOfSeatDetected>(OnInsideRightSideOfSeatDetected);
         EventBus.Subscribe<OutsideKickActionDetected>(OnOutsideKickActionDetected);
         EventBus.Subscribe<FreeKickTimeDetected>(OnFreeKickTimeDetected);
     }
-    
+
+    private void OnChangeLevelDetected(ChangeLevelDetected obj)
+    {
+        isFirstEnter = false;
+    }
+
     //TODO
 
     private void OnFreeKickTimeDetected(FreeKickTimeDetected obj)
@@ -61,12 +71,14 @@ public class ActorFootballController : MonoBehaviour
         var rightFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.RightArea, FootType.LeftFoot);
         var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.LeftArea, FootType.RightFoot);
         
-        actor.MoveAction(isRightSide);
+        if(isFirstEnter) actor.MoveAction(isRightSide);
         
         actor.SetKinematic(false);
 
         if (rightAreaTrigger && !isEnter)
         {
+            isFirstEnter = true;
+            
             if (isRightSide)
             {
                 if (rightFootTrigger)
@@ -83,6 +95,8 @@ public class ActorFootballController : MonoBehaviour
 
         if (leftAreaTrigger && !isEnter)
         {
+            isFirstEnter = true;
+
             if (!isRightSide)
             {
                 if (leftFootTrigger)
@@ -109,13 +123,15 @@ public class ActorFootballController : MonoBehaviour
         var rightFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.RightArea, FootType.RightFoot);
         var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.LeftArea, FootType.LeftFoot);
 
-        actor.MoveAction(isRightSide);
+        if(isFirstEnter) actor.MoveAction(isRightSide);
         
 
         actor.SetKinematic(false);
 
         if (rightAreaTrigger && !isEnter)
         {
+            isFirstEnter = true;
+            
             if (isRightSide)
             {
                 if (rightFootTrigger)
@@ -132,6 +148,8 @@ public class ActorFootballController : MonoBehaviour
 
         if (leftAreaTrigger && !isEnter)
         {
+            isFirstEnter = true;
+            
             if (!isRightSide)
             {
                 if (leftFootTrigger)
@@ -259,7 +277,15 @@ public class ActorFootballController : MonoBehaviour
     {
         
     }
-    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("ResetArea"))
+        {
+            actor.ResetPosition();
+        }
+    }
+
     //TODO
 
     private void OnTriggerEnterArea()

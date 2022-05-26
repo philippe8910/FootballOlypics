@@ -18,6 +18,8 @@ public class ActorFootball : MonoBehaviour
     [SerializeField] private Rigidbody rigidbody;
     
     [SerializeField] private LayerMask footLayerMask;
+
+    [SerializeField] private Vector3 defaultPosition;
     
     [BoxGroup]
     
@@ -26,6 +28,7 @@ public class ActorFootball : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        defaultPosition = transform.position;
     }
 
     public void Kick(Vector3 CollisionVector , float force)
@@ -175,6 +178,11 @@ public class ActorFootball : MonoBehaviour
     public void SetKinematic(bool setKinematic)
     {
         rigidbody.isKinematic = setKinematic;
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = defaultPosition;
     }
 
     public void SetConstranit(RigidbodyConstraints targetConstraints)
