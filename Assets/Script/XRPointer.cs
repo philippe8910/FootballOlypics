@@ -14,6 +14,8 @@ public class XRPointer : MonoBehaviour
     [SerializeField] private LineRenderer m_lineRenderer = null;
 
     [SerializeField] private SteamVR_Action_Boolean inputActionBoolean;
+
+    [SerializeField] private bool isComputerDebug;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,14 +31,29 @@ public class XRPointer : MonoBehaviour
     private void UpdateInputController(RaycastHit hit)
     {
         //inputActionBoolean[SteamVR_Input_Sources.Any].active
-        
-        if (inputActionBoolean[SteamVR_Input_Sources.Any].active)
+
+        if (isComputerDebug)
         {
-            if (hit.collider.GetComponent<Button>())
+            if (Input.GetMouseButtonDown(0))
             {
-                var button = hit.collider.GetComponent<Button>();
+                if (hit.collider.GetComponent<Button>())
+                {
+                    var button = hit.collider.GetComponent<Button>();
                 
-                button.onClick.Invoke();
+                    button.onClick.Invoke();
+                }
+            }
+        }
+        else
+        {
+            if (inputActionBoolean[SteamVR_Input_Sources.Any].active)
+            {
+                if (hit.collider.GetComponent<Button>())
+                {
+                    var button = hit.collider.GetComponent<Button>();
+                
+                    button.onClick.Invoke();
+                }
             }
         }
     }
