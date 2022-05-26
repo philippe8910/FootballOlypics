@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
+using Valve.VR;
 
 public class XRPointer : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class XRPointer : MonoBehaviour
     [SerializeField] private GameObject m_dot;
 
     [SerializeField] private LineRenderer m_lineRenderer = null;
+
+    [SerializeField] private SteamVR_Action_Boolean inputActionBoolean;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,21 @@ public class XRPointer : MonoBehaviour
     void Update()
     {
         UpdateLine();
+    }
+
+    private void UpdateInputController(RaycastHit hit)
+    {
+        //inputActionBoolean[SteamVR_Input_Sources.Any].active
+        
+        if (inputActionBoolean[SteamVR_Input_Sources.Any].active)
+        {
+            if (hit.collider.GetComponent<Button>())
+            {
+                var button = hit.collider.GetComponent<Button>();
+                
+                button.onClick.Invoke();
+            }
+        }
     }
 
     private void UpdateLine()
@@ -38,6 +57,8 @@ public class XRPointer : MonoBehaviour
         
         m_lineRenderer.SetPosition(0 , transform.position);
         m_lineRenderer.SetPosition(1 , endPosition);
+
+        UpdateInputController(hit);
     }
 
     private RaycastHit CreateRaycastHit(float length)
