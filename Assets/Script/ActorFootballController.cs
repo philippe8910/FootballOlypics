@@ -55,6 +55,9 @@ public class ActorFootballController : MonoBehaviour
             print("footBallFlyDir" + footBallFlyDir);
 
             actor.Kick(footBallFlyDir, 10);
+            
+            PlayKickAudio(); //踢球聲音
+
             isEnter = true;
         }
 
@@ -90,6 +93,9 @@ public class ActorFootballController : MonoBehaviour
                     OutsideKickPunishmentsAction();
                 }
             }
+            
+            PlayKickAudio(); //踢球聲音
+
             isEnter = true;
         }
 
@@ -108,6 +114,9 @@ public class ActorFootballController : MonoBehaviour
                     OutsideKickPunishmentsAction();
                 }
             }
+            
+            PlayKickAudio(); //踢球聲音
+
         }
 
         if (!leftAreaTrigger && !rightAreaTrigger) isEnter = false;
@@ -143,6 +152,9 @@ public class ActorFootballController : MonoBehaviour
                     InsideRightSideOfSeatPunishmentsAction();
                 }
             }
+            
+            PlayKickAudio(); //踢球聲音
+
             isEnter = true;
         }
 
@@ -161,6 +173,9 @@ public class ActorFootballController : MonoBehaviour
                     InsideRightSideOfSeatPunishmentsAction();
                 }
             }
+            
+            PlayKickAudio(); //踢球聲音
+
         }
 
         if (!leftAreaTrigger && !rightAreaTrigger) isEnter = false;
@@ -201,6 +216,8 @@ public class ActorFootballController : MonoBehaviour
                     BallSteppingActionInputWrongFoot();
                 }
             }
+
+            PlayKickAudio(); //踢球聲音
             
             isEnter = true;
         }
@@ -286,6 +303,11 @@ public class ActorFootballController : MonoBehaviour
         }
     }
 
+    private void PlayKickAudio()
+    {
+        EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Kick));
+    }
+
     //TODO
 
     private void OnTriggerEnterArea()
@@ -302,5 +324,7 @@ public class ActorFootballController : MonoBehaviour
     {
         
     }
+    
+    
 
 }
