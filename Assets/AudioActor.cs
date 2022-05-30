@@ -9,18 +9,38 @@ public class AudioActor : MonoBehaviour
     //0.Loss
     //1.Kick
 
-    public void AudioPlay(SoundEffect soundEffect)
+    public AudioSource ComplieAudioSource(SoundEffect soundEffect)
     {
         switch (soundEffect)
         {
             case SoundEffect.Loss:
-                audioSources[0].Play();
-                break;
-            
+                return audioSources[0];
+
             case SoundEffect.Kick:
-                audioSources[1].Play();
-                break;
+                return audioSources[1];
+
+            default:
+                return null;
         }
+    }
+
+    public void AudioPlay(SoundEffect soundEffect)
+    {
+        ComplieAudioSource(soundEffect).Play();
+    }
+    
+    public void AudioPlay(SoundEffect soundEffect , Vector3 playPosition)
+    {
+        GameObject insAudio = new GameObject();
+        var insAudioSource = insAudio.AddComponent<AudioSource>();
+        
+        insAudioSource.clip = ComplieAudioSource(soundEffect).clip;
+        insAudioSource.loop = false;
+        insAudioSource.playOnAwake = true;
+
+        var insAudioObject = Instantiate(insAudio, playPosition, Quaternion.identity);
+        
+        Destroy(insAudioObject , 1);
     }
     
 }

@@ -116,6 +116,8 @@ public class ActorFootballController : MonoBehaviour
             }
             
             PlayKickAudio(); //踢球聲音
+            
+            isEnter = true;
 
         }
 
@@ -175,6 +177,8 @@ public class ActorFootballController : MonoBehaviour
             }
             
             PlayKickAudio(); //踢球聲音
+            
+            isEnter = true;
 
         }
 
@@ -218,7 +222,7 @@ public class ActorFootballController : MonoBehaviour
             }
 
             PlayKickAudio(); //踢球聲音
-            
+
             isEnter = true;
         }
 
@@ -300,6 +304,8 @@ public class ActorFootballController : MonoBehaviour
         if (other.CompareTag("ResetArea"))
         {
             actor.ResetPosition();
+            
+            EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Loss));
         }
     }
 
