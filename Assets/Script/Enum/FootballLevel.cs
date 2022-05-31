@@ -31,6 +31,10 @@ public enum FootType
 public enum SoundEffect
 {
     Loss,
-    Kick
+    Kick,
+    Boo,
+    Firework,
+    CheerLong,
+    CheerShort
 }
 
