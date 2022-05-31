@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Start
+  m_EditorClassIdentifier: Assembly-CSharp::Subtitle
+  subtitleData:
+    SubtitleList:
+    - Test1Test1Test1Test1Test1Test1Test1Test1Test1Test1
+    - Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2
+    - Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3
+    - Test4Test4Test4Test4Test4Test4Test4Test4Test4Test4Test4
+    - Test5Test5Test5Test5Test5Test5Test5Test5Test5Test5Test5Test5
+    - Test6Test6Test6Test6Test6Test6Test6Test6Test6Test6Test6
