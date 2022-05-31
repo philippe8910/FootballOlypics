@@ -6,6 +6,8 @@ public class AudioActor : MonoBehaviour
 {
     [SerializeField] private List<AudioSource> audioSources = new List<AudioSource>();
 
+    [SerializeField] private List<AudioSource> narrationSources = new List<AudioSource>();
+
     //0.Loss
     //1.Kick
 
@@ -18,6 +20,15 @@ public class AudioActor : MonoBehaviour
 
             case SoundEffect.Kick:
                 return audioSources[1];
+            
+            case SoundEffect.Narration_0:
+                return narrationSources[0];
+            
+            case SoundEffect.Narration_1:
+                return narrationSources[1];
+            
+            case SoundEffect.Narration_2:
+                return narrationSources[2];
 
             default:
                 return null;

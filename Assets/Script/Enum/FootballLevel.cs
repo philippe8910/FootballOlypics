@@ -35,6 +35,9 @@ public enum SoundEffect
     Boo,
     Firework,
     CheerLong,
-    CheerShort
+    CheerShort,
+    Narration_0,
+    Narration_1,
+    Narration_2
 }
 
