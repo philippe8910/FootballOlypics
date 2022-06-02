@@ -43,7 +43,7 @@ public class SubtitleSystem : MonoBehaviour
 
         if (subtitleStringLength != subtitleTimeLength)
         {
-            Debug.LogError("Subtitle List count is not same");
+            Debug.LogError( subtitle + "Subtitle List count is not same");
             yield return null;
         }
 
