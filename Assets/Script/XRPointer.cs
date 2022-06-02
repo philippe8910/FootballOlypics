@@ -91,16 +91,28 @@ public class XRPointer : MonoBehaviour
 
     private void TeleportAction(RaycastHit _hit)
     {
-        if (_hit.collider.GetComponent<TeleportPointXR>())
+        if (_hit.collider)
         {
-            var teleportAction = _hit.collider.GetComponent<TeleportPointXR>();
-            teleportAction.SetAtive();
-
-            if (inputActionBoolean[SteamVR_Input_Sources.Any].active)
+            if (_hit.collider.GetComponent<TeleportPointXR>())
             {
+                var teleportAction = _hit.collider.GetComponent<TeleportPointXR>();
+                teleportAction.SetAtive();
+
+                if (isComputerDebug)
+                {
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        GameObject.FindWithTag("Player").transform.position = new Vector3(teleportAction.transform.position.x ,GameObject.FindWithTag("Player").transform.position.y ,teleportAction.transform.position.z);
+                    }
+                }
+                else
+                {
+                    if (inputActionBoolean[SteamVR_Input_Sources.Any].active)
+                    {
                 
+                    }
+                }
             }
-            
         }
     }
 
