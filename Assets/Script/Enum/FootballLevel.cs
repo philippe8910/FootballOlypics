@@ -28,4 +28,16 @@ public enum FootType
     RightFoot,
     LeftFoot
 }
+public enum SoundEffect
+{
+    Loss,
+    Kick,
+    Boo,
+    Firework,
+    CheerLong,
+    CheerShort,
+    Narration_0,
+    Narration_1,
+    Narration_2
+}
 

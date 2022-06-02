@@ -6,6 +6,12 @@ TagManager:
   tags:
   - LeftFoot
   - RightFoot
+  - FootBall
+  - ResetArea
+  - LeftHand
+  - RightHand
+  - TeleportPoint
+  - Pointer
   layers:
   - Default
   - TransparentFX
