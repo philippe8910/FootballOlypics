@@ -8,7 +8,7 @@ public class VideoCameraFollow : MonoBehaviour
     [SerializeField] private Transform mainCamera;
     void Start()
     {
-        //Debug.Log("Fuck");
+       
     }
 
     // Update is called once per frame
