@@ -109,7 +109,7 @@ public class XRPointer : MonoBehaviour
                 {
                     if (inputActionBoolean[SteamVR_Input_Sources.Any].active)
                     {
-                
+                        GameObject.FindWithTag("Player").transform.position = new Vector3(teleportAction.transform.position.x ,GameObject.FindWithTag("Player").transform.position.y ,teleportAction.transform.position.z);
                     }
                 }
             }
