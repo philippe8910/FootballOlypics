@@ -76,6 +76,7 @@ public class XRPointer : MonoBehaviour
         m_lineRenderer.SetPosition(1 , endPosition);
 
         UpdateInputController(hit);
+        TeleportAction(hit);
     }
 
     private RaycastHit CreateRaycastHit(float length)
@@ -87,5 +88,20 @@ public class XRPointer : MonoBehaviour
 
         return hit;
     }
-    
+
+    private void TeleportAction(RaycastHit _hit)
+    {
+        if (_hit.collider.GetComponent<TeleportPointXR>())
+        {
+            var teleportAction = _hit.collider.GetComponent<TeleportPointXR>();
+            teleportAction.SetAtive();
+
+            if (inputActionBoolean[SteamVR_Input_Sources.Any].active)
+            {
+                
+            }
+            
+        }
+    }
+
 }
