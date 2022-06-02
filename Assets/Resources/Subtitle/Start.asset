@@ -13,10 +13,15 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: Assembly-CSharp::Subtitle
   subtitleData:
-    SubtitleList:
-    - Test1Test1Test1Test1Test1Test1Test1Test1Test1Test1
-    - Test2Test2Test2Test2Test2Test2Test2Test2Test2Test2
-    - Test3Test3Test3Test3Test3Test3Test3Test3Test3Test3
-    - Test4Test4Test4Test4Test4Test4Test4Test4Test4Test4Test4
-    - Test5Test5Test5Test5Test5Test5Test5Test5Test5Test5Test5Test5
-    - Test6Test6Test6Test6Test6Test6Test6Test6Test6Test6Test6
+    subtitleList:
+    - qwe
+    - qweeewq
+    - erwrew
+    - asdasddas
+    - xczczxvzxczxc
+    subtitleTime:
+    - 2
+    - 3
+    - 4
+    - 1
+    - 2

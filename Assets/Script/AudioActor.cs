@@ -37,12 +37,13 @@ public class AudioActor : MonoBehaviour
 
     public void AudioPlay(SoundEffect soundEffect)
     {
-        ComplieAudioSource(soundEffect).Play();
+        var audio = ComplieAudioSource(soundEffect);
+        audio.Play();
     }
     
     public void AudioPlay(SoundEffect soundEffect , Vector3 playPosition)
     {
-        GameObject insAudio = new GameObject();
+        var insAudio = new GameObject();
         var insAudioSource = insAudio.AddComponent<AudioSource>();
         
         insAudioSource.clip = ComplieAudioSource(soundEffect).clip;

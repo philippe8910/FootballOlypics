@@ -5,7 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class SubtitleData
 {
-    public List<string> SubtitleList = new List<string>();
+    public List<string> subtitleList = new List<string>();
+    public List<float> subtitleTime = new List<float>();
 }
 
 

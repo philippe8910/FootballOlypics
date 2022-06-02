@@ -35,8 +35,9 @@ public class SubtitleSystem : MonoBehaviour
 
     private IEnumerator StartEnterSubtitle(Subtitle subtitle)
     {
-        var subtitleLength = subtitle.subtitleData.SubtitleList.Count;
-        var subtitleList = subtitle.subtitleData.SubtitleList;
+        var subtitleLength = subtitle.subtitleData.subtitleList.Count;
+        var subtitleList = subtitle.subtitleData.subtitleList;
+        var subtitleTimeList = subtitle.subtitleData.subtitleTime;
         
         actor.SetSubtitleActive(true);
 
@@ -44,7 +45,7 @@ public class SubtitleSystem : MonoBehaviour
         {
             actor.SetSubtitleText(subtitleList[i]);
             
-            yield return new WaitForSeconds(subtitleRunTime);
+            yield return new WaitForSeconds(subtitleTimeList[i]);
             
         }
         

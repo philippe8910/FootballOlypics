@@ -8,6 +8,8 @@ TagManager:
   - RightFoot
   - FootBall
   - ResetArea
+  - LeftHand
+  - RightHand
   layers:
   - Default
   - TransparentFX
