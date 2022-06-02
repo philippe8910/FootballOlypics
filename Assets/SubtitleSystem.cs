@@ -35,14 +35,21 @@ public class SubtitleSystem : MonoBehaviour
 
     private IEnumerator StartEnterSubtitle(Subtitle subtitle)
     {
-        var subtitleLength = subtitle.subtitleData.subtitleList.Count;
+        var subtitleStringLength = subtitle.subtitleData.subtitleList.Count;
+        var subtitleTimeLength = subtitle.subtitleData.subtitleTime.Count;
         var subtitleList = subtitle.subtitleData.subtitleList;
         var subtitleTimeList = subtitle.subtitleData.subtitleTime;
         var onSubtitleEnd = subtitle.subtitleData.onSubtitleEnd;
-        
+
+        if (subtitleStringLength != subtitleTimeLength)
+        {
+            Debug.LogError("Subtitle List count is not same");
+            yield return null;
+        }
+
         actor.SetSubtitleActive(true);
 
-        for (int i = 0 ; i < subtitleLength ; i++)
+        for (int i = 0 ; i < subtitleStringLength ; i++)
         {
             actor.SetSubtitleText(subtitleList[i]);
             
