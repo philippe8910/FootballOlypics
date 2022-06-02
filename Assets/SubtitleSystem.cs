@@ -16,12 +16,20 @@ public class SubtitleSystem : MonoBehaviour
         actor = GetComponent<SubtitleActor>();
         
         EventBus.Subscribe<SubtitleDetected>(OnSubtitleDetected);
+        EventBus.Subscribe<StartGameDetected>(OnStartGameDetected);
     }
-    
+
+    private void OnStartGameDetected(StartGameDetected obj)
+    {
+        EventBus.Post(new SubtitleDetected("Start"));
+        EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Narration_0));
+    }
+
     [Button]
     public void Test()
     {
         var g = actor.CompileSubtitleCategory("Start");
+        EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Narration_0));
         StartCoroutine(StartEnterSubtitle(g));
     }
 
