@@ -38,6 +38,7 @@ public class SubtitleSystem : MonoBehaviour
         var subtitleLength = subtitle.subtitleData.subtitleList.Count;
         var subtitleList = subtitle.subtitleData.subtitleList;
         var subtitleTimeList = subtitle.subtitleData.subtitleTime;
+        var onSubtitleEnd = subtitle.subtitleData.onSubtitleEnd;
         
         actor.SetSubtitleActive(true);
 
@@ -48,6 +49,8 @@ public class SubtitleSystem : MonoBehaviour
             yield return new WaitForSeconds(subtitleTimeList[i]);
             
         }
+        
+        onSubtitleEnd.Invoke();
         
         actor.SetSubtitleActive(false);
     }
