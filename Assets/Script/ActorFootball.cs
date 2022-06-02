@@ -183,6 +183,8 @@ public class ActorFootball : MonoBehaviour
     public void ResetPosition()
     {
         transform.position = defaultPosition;
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.angularVelocity = Vector3.zero;
     }
 
     public void SetConstranit(RigidbodyConstraints targetConstraints)

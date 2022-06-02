@@ -46,7 +46,7 @@ public class XRPointer : MonoBehaviour
         }
         else
         {
-            if (inputActionBoolean[SteamVR_Input_Sources.Any].active)
+            if (inputActionBoolean[SteamVR_Input_Sources.Any].stateDown)
             {
                 if (hit.collider.GetComponent<Button>())
                 {
@@ -107,7 +107,7 @@ public class XRPointer : MonoBehaviour
                 }
                 else
                 {
-                    if (inputActionBoolean[SteamVR_Input_Sources.Any].active)
+                    if (inputActionBoolean[SteamVR_Input_Sources.Any].stateDown)
                     {
                         GameObject.FindWithTag("Player").transform.position = new Vector3(teleportAction.transform.position.x ,GameObject.FindWithTag("Player").transform.position.y ,teleportAction.transform.position.z);
                     }

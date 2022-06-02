@@ -15,6 +15,8 @@ public class ActorFootballController : MonoBehaviour
     private bool isStay;
 
     private bool isFirstEnter;
+
+    private Transform playerTransform;
     
     [SerializeField] private bool isRightSide;
     
@@ -24,6 +26,7 @@ public class ActorFootballController : MonoBehaviour
     void Start()
     {
         actor = GetComponent<ActorFootball>();
+        playerTransform = GameObject.FindWithTag("Player").transform;
         
         EventBus.Subscribe<ChangeLevelDetected>(OnChangeLevelDetected);
         
@@ -46,7 +49,19 @@ public class ActorFootballController : MonoBehaviour
 
         actor.SetKinematic(false);
         actor.SetConstranit(RigidbodyConstraints.None);
-
+        
+        if (Vector3.Distance(playerTransform.position, transform.position) >= 11.7f)
+        {
+            actor.ResetPosition();
+            
+            
+            
+            EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Loss));
+        }
+        
+        
+        print("Distance : " + Vector3.Distance((GameObject.FindWithTag("Player").transform.position),transform.position));
+        
         if (allAreaTrigger && !isEnter)
         {
             var allAreaEnterObject = actor.GetTriggerEnterObject(FootBallAreaType.AllArea);
@@ -297,16 +312,6 @@ public class ActorFootballController : MonoBehaviour
     private void OutsideKickPunishmentsAction()
     {
         
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("ResetArea"))
-        {
-            actor.ResetPosition();
-            
-            EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Loss));
-        }
     }
 
     private void PlayKickAudio()
