@@ -29,7 +29,7 @@ public class LabTigher : MonoBehaviour
             
             case FootLevels.InsideRightSideOfSeatTutorial:
                 animator.Play("InsideRightSideOfSeatTutorial");
-                EventBus.Post(new SubtitleDetected(""));
+                EventBus.Post(new SubtitleDetected("InsideRightSideOfSeatTutorial"));
                 break;
             
             case FootLevels.OutsideKickTutorial:
