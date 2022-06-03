@@ -12,7 +12,6 @@ public class GoalArea : MonoBehaviour
         if (other.CompareTag("FootBall"))
         {
             EventBus.Post(new GoalTriggerDetected());
-            
         }
     }
 }

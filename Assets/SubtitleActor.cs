@@ -18,6 +18,11 @@ public class SubtitleActor : MonoBehaviour
         textMesh.gameObject.SetActive(isActive);
     }
 
+    public void ResetSubtitleText()
+    {
+        textMesh.text = "";
+    }
+
     public void SetSubtitleText(string text)
     {
         textMesh.text = text;

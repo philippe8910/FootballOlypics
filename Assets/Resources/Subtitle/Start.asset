@@ -31,4 +31,16 @@ MonoBehaviour:
     - 7.13
     onSubtitleEnd:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 6476926751411650038, guid: d1aceb3f327d11848b5d0840122d481d,
+            type: 3}
+          m_MethodName: OnBeginningEnd
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

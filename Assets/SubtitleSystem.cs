@@ -36,7 +36,8 @@ public class SubtitleSystem : MonoBehaviour
     private void OnSubtitleDetected(SubtitleDetected obj)
     {
         var subtitleCategory = obj.subtitleCategory;
-        
+
+        Debug.Log("Fuck");
         var g = actor.CompileSubtitleCategory(subtitleCategory);
         StartCoroutine(StartEnterSubtitle(g));
     }
@@ -55,8 +56,6 @@ public class SubtitleSystem : MonoBehaviour
             yield return null;
         }
 
-        actor.SetSubtitleActive(true);
-
         for (int i = 0 ; i < subtitleStringLength ; i++)
         {
             actor.SetSubtitleText(subtitleList[i]);
@@ -65,8 +64,10 @@ public class SubtitleSystem : MonoBehaviour
             
         }
         
+        actor.ResetSubtitleText();
+        
         onSubtitleEnd.Invoke();
         
-        actor.SetSubtitleActive(false);
+        
     }
 }

@@ -7,6 +7,8 @@ using UnityEngine;
 public class LabLevelSystem : MonoBehaviour
 {
     [SerializeField] private GameObject airplane;
+
+    [SerializeField] private GameObject exitAirplane;
     void Start()
     {
         EventBus.Subscribe<GoalTriggerDetected>(OnGoalTriggerDetected);
@@ -15,5 +17,6 @@ public class LabLevelSystem : MonoBehaviour
     private void OnGoalTriggerDetected(GoalTriggerDetected obj)
     {
         airplane.SetActive(true);
+        exitAirplane.SetActive(true);
     }
 }
