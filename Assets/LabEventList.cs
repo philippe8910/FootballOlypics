@@ -11,4 +11,19 @@ public class LabEventList : MonoBehaviour
         EventBus.Post(new SubtitleDetected("StepBallTutorial"));
         EventBus.Post(new ChangeLevelDetected(FootLevels.BallSteppingActionTutorial));
     }
+
+    public void OnBallSteppingActionTutorialEnd()
+    {
+        EventBus.Post(new ChangeLevelDetected(FootLevels.BallSteppingAction));
+    }
+
+    public void OnInsideRightSideOfSeatTutorialEnd()
+    {
+        EventBus.Post(new ChangeLevelDetected(FootLevels.InsideRightSideOfSeat));
+    }
+
+    public void OnOutsideKickTutorialEnd()
+    {
+        EventBus.Post(new ChangeLevelDetected(FootLevels.OutsideKick));
+    }
 }

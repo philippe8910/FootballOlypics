@@ -1,18 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Project;
+using Project.Event;
 using UnityEngine;
 
 public class LabTigher : MonoBehaviour
 {
+    private Animator animator;
+    
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         
+        EventBus.Subscribe<StartGameDetected>(OnStartGameDetected);
+        EventBus.Subscribe<ChangeLevelDetected>(OnChangeLevelDetected);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnChangeLevelDetected(ChangeLevelDetected obj)
     {
-        
+        var levelType = obj.currentFootLevels;
+
+        switch (levelType)
+        {
+            case FootLevels.BallSteppingActionTutorial:
+                animator.Play("BallSteppingActionTutorial");
+                break;
+        }
+    }
+
+    private void OnStartGameDetected(StartGameDetected obj)
+    {
+        animator.Play("Begining");
     }
 }
