@@ -2,12 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TeleportPointXR : MonoBehaviour
 {
     private Material currentMaterial;
     
     [SerializeField] private Color currentColor , pointColor = Color.red;
+
+    [SerializeField] private UnityEvent OnTeleportEnd = new UnityEvent();
 
     private bool isPoint;
     
@@ -32,6 +35,7 @@ public class TeleportPointXR : MonoBehaviour
 
     public void SetAtive()
     {
+        OnTeleportEnd.Invoke();
         gameObject.SetActive(false);
     }
 
