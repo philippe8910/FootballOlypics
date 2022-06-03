@@ -32,6 +32,11 @@ public class TeleportPointXR : MonoBehaviour
 
     public void SetAtive()
     {
+        gameObject.SetActive(false);
+    }
+
+    public void OnPoint()
+    {
         isPoint = true;
     }
 

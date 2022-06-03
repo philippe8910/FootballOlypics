@@ -7,6 +7,8 @@ using Valve.VR;
 
 public class XRPointer : MonoBehaviour
 {
+    private Transform Player;
+    
     [SerializeField] private float m_defaultLength = 5.0f;
 
     [SerializeField] private GameObject m_dot;
@@ -20,6 +22,7 @@ public class XRPointer : MonoBehaviour
     void Start()
     {
         m_lineRenderer = GetComponent<LineRenderer>();
+        Player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -96,20 +99,22 @@ public class XRPointer : MonoBehaviour
             if (_hit.collider.GetComponent<TeleportPointXR>())
             {
                 var teleportAction = _hit.collider.GetComponent<TeleportPointXR>();
-                teleportAction.SetAtive();
+                teleportAction.OnPoint();
 
                 if (isComputerDebug)
                 {
                     if (Input.GetMouseButtonDown(0))
                     {
-                        GameObject.FindWithTag("Player").transform.position = new Vector3(teleportAction.transform.position.x ,GameObject.FindWithTag("Player").transform.position.y ,teleportAction.transform.position.z);
+                        Player.position = new Vector3(teleportAction.transform.position.x ,GameObject.FindWithTag("Player").transform.position.y ,teleportAction.transform.position.z);
+                        teleportAction.SetAtive();
                     }
                 }
                 else
                 {
                     if (inputActionBoolean[SteamVR_Input_Sources.Any].stateDown)
                     {
-                        GameObject.FindWithTag("Player").transform.position = new Vector3(teleportAction.transform.position.x ,GameObject.FindWithTag("Player").transform.position.y ,teleportAction.transform.position.z);
+                        Player.position = new Vector3(teleportAction.transform.position.x ,GameObject.FindWithTag("Player").transform.position.y ,teleportAction.transform.position.z);
+                        teleportAction.SetAtive();
                     }
                 }
             }
