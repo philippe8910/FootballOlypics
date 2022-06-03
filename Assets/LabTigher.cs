@@ -26,6 +26,15 @@ public class LabTigher : MonoBehaviour
             case FootLevels.BallSteppingActionTutorial:
                 animator.Play("BallSteppingActionTutorial");
                 break;
+            
+            case FootLevels.InsideRightSideOfSeatTutorial:
+                animator.Play("InsideRightSideOfSeatTutorial");
+                EventBus.Post(new SubtitleDetected(""));
+                break;
+            
+            case FootLevels.OutsideKickTutorial:
+                animator.Play("OutsideKickTutorial");
+                break;
         }
     }
 
