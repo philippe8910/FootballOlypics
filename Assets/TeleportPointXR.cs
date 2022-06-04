@@ -10,7 +10,7 @@ public class TeleportPointXR : MonoBehaviour
     
     [SerializeField] private Color currentColor , pointColor = Color.red;
 
-    [SerializeField] private UnityEvent OnTeleportEnd = new UnityEvent();
+    [SerializeField] public UnityEvent OnTeleportEnd = new UnityEvent();
 
     private bool isPoint;
     

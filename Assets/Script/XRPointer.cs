@@ -45,6 +45,13 @@ public class XRPointer : MonoBehaviour
                 
                     button.onClick.Invoke();
                 }
+
+                if (hit.collider.GetComponent<ButtonXR>())
+                {
+                    var button = hit.collider.GetComponent<ButtonXR>();
+                    
+                    button.ClickAction.Invoke();
+                }
             }
         }
         else
@@ -56,6 +63,13 @@ public class XRPointer : MonoBehaviour
                     var button = hit.collider.GetComponent<Button>();
                 
                     button.onClick.Invoke();
+                }
+                
+                if (hit.collider.GetComponent<ButtonXR>())
+                {
+                    var button = hit.collider.GetComponent<ButtonXR>();
+                    
+                    button.ClickAction.Invoke();
                 }
             }
         }

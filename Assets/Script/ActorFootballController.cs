@@ -39,6 +39,7 @@ public class ActorFootballController : MonoBehaviour
     private void OnChangeLevelDetected(ChangeLevelDetected obj)
     {
         isFirstEnter = false;
+        actor.ResetPosition();
     }
 
     //TODO
