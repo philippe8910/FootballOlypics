@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
-  m_Name: OnLabEnd
+  m_Name: OnTeleportExitPoint
   m_EditorClassIdentifier: Assembly-CSharp::Subtitle
   subtitleData:
     subtitleList:
-    - "\u592A\u68D2\u4E86!! \u52D5\u4F5C\u90FD\u6709\u505A\u5C0D"
-    - "\u9019\u6A23\u4F60\u5C31\u6210\u529F\u901A\u904E\u6559\u5B78\u4E86\u5594~"
-    - "\u518D\u4F86\u6211\u5011\u5C07\u4E58\u5750\u98DB\u6A5F\u524D\u5F80\u4ECA\u5E74\u7684\u4E16\u8DB3\u73FE\u5834\u5361\u9054"
+    - "\u963F\u5FD8\u4E86\u63D0\u9192\u4F60\uFF0C\u5728\u4F60\u65C1\u908A\u7684\u6771\u897F\u662F\u9020\u578B\u7BB1"
+    - "\u4F60\u53EF\u4EE5\u66F4\u63DB\u4E0D\u540C\u570B\u5BB6\u7684\u968A\u670D"
+    - "\u90A3\u5C31\u5F85\u6703\u898B\u56C9"
     subtitleTime:
-    - 4.73
-    - 3.54
-    - 6.29
+    - 3.4
+    - 4.07
+    - 3.81
     onSubtitleEnd:
       m_PersistentCalls:
         m_Calls: []
