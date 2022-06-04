@@ -34,7 +34,13 @@ public class LabTigher : MonoBehaviour
             
             case FootLevels.OutsideKickTutorial:
                 animator.Play("OutsideKickTutorial");
-                break;
+                EventBus.Post(new SubtitleDetected("OutsideKickTutorial"));
+                break; 
+            
+            case FootLevels.FreeKickTimeTutorial:
+                animator.Play("Begining");
+                EventBus.Post(new SubtitleDetected("FreeKickTimeTutorial"));
+                break; 
         }
     }
 

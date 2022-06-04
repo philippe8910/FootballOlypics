@@ -26,4 +26,9 @@ public class LabEventList : MonoBehaviour
     {
         EventBus.Post(new ChangeLevelDetected(FootLevels.OutsideKick));
     }
+
+    public void OnFreeKickTimeTutorialEnd()
+    {
+        EventBus.Post(new ChangeLevelDetected(FootLevels.FreeKickTime));
+    }
 }
