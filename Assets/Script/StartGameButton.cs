@@ -9,13 +9,9 @@ using UnityEngine.UI;
 
 public class StartGameButton : ButtonEventAdd
 {
-    public async override void OnClick()
+    public override void OnClick()
     {
-        //base.OnClick();
-        EventBus.Post(new ChangeSceneEffectDetected());
-        
-        await Task.Delay(3000);
-        
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        base.OnClick();
+        EventBus.Post(new StartGameDetected());
     }
 }
