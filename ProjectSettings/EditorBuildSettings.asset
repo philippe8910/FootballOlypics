@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ToastFolder/Scenes/PraticeSceneMain.unity
+    path: Assets/Scenes/PraticeSceneMain.unity
     guid: 9828306baa2f6f44584372fb74834131
   - enabled: 1
     path: Assets/ToastFolder/Scenes/soccer.unity
