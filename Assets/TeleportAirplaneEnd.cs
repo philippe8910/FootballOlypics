@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Project;
 using Project.Event;
+using Project.Event.SubtitleEvent;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -14,8 +16,13 @@ public class TeleportAirplaneEnd : MonoBehaviour
         teleportPointXR.OnTeleportEnd.AddListener(OnTeleportEnd);
     }
 
-    private void OnTeleportEnd()
+    private async void OnTeleportEnd()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("soccer");
+        EventBus.Post(new ChangeSceneEffectDetected());
+        
+        await Task.Delay(3000);
+        
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
+    
 }

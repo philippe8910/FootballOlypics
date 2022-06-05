@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Project;
+using Project.Event.SubtitleEvent;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,12 +12,25 @@ public class ChangeEffect : MonoBehaviour
     [SerializeField] float fadeSpeed;
     [SerializeField] Image changeEffectImage;
 
+    private Animator animator;
+
     private void Start()
     {
+        animator = GetComponent<Animator>();
+        
         changeEffectImage = GetComponent<Image>();
+        
+        animator.Play("FadeOut");
+        
+        EventBus.Subscribe<ChangeSceneEffectDetected>(OnChangeSceneEffectDetected);
         //GetComponent<Image>().color = new Color(0, 0, 0, 0);
 
-        StartCoroutine(StartFadeToBlack());
+        //StartCoroutine(StartFadeToBlack());
+    }
+
+    private void OnChangeSceneEffectDetected(ChangeSceneEffectDetected obj)
+    {
+        animator.Play("FadeIn");
     }
 
     IEnumerator StartFadeToBlack()
