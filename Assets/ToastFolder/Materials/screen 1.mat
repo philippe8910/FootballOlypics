@@ -167,8 +167,8 @@ Material:
     - _DoubleSidedNormalMode: 1
     - _DstBlend: 0
     - _EmissiveColorMode: 1
-    - _EmissiveExposureWeight: 0.121
-    - _EmissiveIntensity: 2.49
+    - _EmissiveExposureWeight: 0.086
+    - _EmissiveIntensity: 103.54
     - _EmissiveIntensityUnit: 0
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
@@ -248,8 +248,8 @@ Material:
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissiveColor: {r: 1.9262264, g: 1.6330112, b: 0.8449889, a: 2.49}
-    - _EmissiveColorLDR: {r: 0.7735849, g: 0.6558278, b: 0.33921298, a: 1}
+    - _EmissiveColor: {r: 80.096985, g: 67.90441, b: 35.119915, a: 103.54}
+    - _EmissiveColorLDR: {r: 0.7735849, g: 0.6558278, b: 0.33918467, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
