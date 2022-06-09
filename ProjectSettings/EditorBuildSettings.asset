@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/FootBallLab.unity
     guid: 9828306baa2f6f44584372fb74834131
   - enabled: 1
-    path: Assets/Scenes/FootballField.unity
+    path: Assets/Scenes/soccer.unity
     guid: 48d1930d3aa1fe74d8877a961aca9ea4
   m_configObjects:
     Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: c48cfad0d601936458237a45a5c8748e,
