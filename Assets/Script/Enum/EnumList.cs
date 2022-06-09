@@ -41,3 +41,9 @@ public enum SoundEffect
     Narration_2
 }
 
+public enum ParticleType
+{
+    KickEffect_Adger,
+    KickEffect_Azer
+}
+

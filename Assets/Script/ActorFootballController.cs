@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Project;
 using Project.Event;
+using Script.Event;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -50,17 +51,7 @@ public class ActorFootballController : MonoBehaviour
 
         actor.SetKinematic(false);
         actor.SetConstranit(RigidbodyConstraints.None);
-        
-        if (Vector3.Distance(playerTransform.position, transform.position) >= 11.7f)
-        {
-            actor.ResetPosition();
-            
-            
-            
-            EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Loss));
-        }
-        
-        
+
         print("Distance : " + Vector3.Distance((GameObject.FindWithTag("Player").transform.position),transform.position));
         
         if (allAreaTrigger && !isEnter)
@@ -238,9 +229,12 @@ public class ActorFootballController : MonoBehaviour
             }
 
             PlayKickAudio(); //踢球聲音
+            KickMoment();
 
             isEnter = true;
         }
+        
+        
 
         if (!upAreaTrigger) isEnter = false;
     }
@@ -335,6 +329,23 @@ public class ActorFootballController : MonoBehaviour
     private void OnTriggerExitArea()
     {
         
+    }
+
+    void KickMoment()
+    {
+        var allAreaEnterObject = actor.GetTriggerEnterObject(FootBallAreaType.AllArea);
+
+        EventBus.Post(new ParticleActionDetected(allAreaEnterObject.transform.position , ParticleType.KickEffect_Azer));
+    }
+
+    private void ActorPositionReset()
+    {
+        if (Vector3.Distance(playerTransform.position, transform.position) >= 11.7f)
+        {
+            actor.ResetPosition();
+            EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Loss));
+        }
+
     }
     
     
