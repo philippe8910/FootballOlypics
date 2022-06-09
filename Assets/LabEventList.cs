@@ -15,6 +15,8 @@ public class LabEventList : MonoBehaviour
     public void OnBallSteppingActionTutorialEnd()
     {
         EventBus.Post(new ChangeLevelDetected(FootLevels.BallSteppingAction));
+        
+        GameObject.Find("Scoreboard").SetActive(true);
     }
 
     public void OnInsideRightSideOfSeatTutorialEnd()
