@@ -21,7 +21,7 @@ public class SubtitleSystem : MonoBehaviour
 
     private void OnStartGameDetected(StartGameDetected obj)
     {
-        EventBus.Post(new SubtitleDetected("Start"));
+        EventBus.Post(new SubtitleDetected("OnStart"));
         EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Narration_0));
     }
 

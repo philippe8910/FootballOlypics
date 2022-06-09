@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using Valve.VR;
 
 [System.Serializable]
 public class SubtitleData
@@ -14,7 +12,7 @@ public class SubtitleData
 }
 
 
-[CreateAssetMenu(fileName = "New Subtitle" , menuName = "Subtitle/Create Subtitle Asset" , order = 1)]
+[CreateAssetMenu(fileName = "New Subtitle" , menuName = "Subtitle/Create Subtitle Asset")]
 public class Subtitle : ScriptableObject
 {
     public SubtitleData subtitleData;
