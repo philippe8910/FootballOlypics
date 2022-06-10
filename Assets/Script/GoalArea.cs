@@ -14,6 +14,8 @@ public class GoalArea : MonoBehaviour
             EventBus.Post(new GoalTriggerDetected());
             EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Narration_1));
             EventBus.Post(new SubtitleDetected("OnLabEnd"));
+            
+            gameObject.SetActive(false);
         }
     }
 }
