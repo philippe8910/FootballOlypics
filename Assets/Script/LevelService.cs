@@ -27,17 +27,17 @@ public class LevelService : MonoBehaviour
     {
         if (currentFootLevels == FootLevels.BallSteppingAction)
         {
-            EventBus.Post(new BallSteppingActionDetected());
+            EventBus.Post(new BallSteppingActionDetected(20));
         }
 
         if (currentFootLevels == FootLevels.InsideRightSideOfSeat)
         {
-            EventBus.Post(new InsideRightSideOfSeatDetected());
+            EventBus.Post(new InsideRightSideOfSeatDetected(20));
         }
 
         if (currentFootLevels == FootLevels.OutsideKick)
         {
-            EventBus.Post(new OutsideKickActionDetected());
+            EventBus.Post(new OutsideKickActionDetected(20));
         }
         
         if (currentFootLevels == FootLevels.FreeKickTime)
