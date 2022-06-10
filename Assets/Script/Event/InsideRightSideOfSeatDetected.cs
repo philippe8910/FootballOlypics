@@ -2,11 +2,11 @@
 {
     public class InsideRightSideOfSeatDetected
     {
-        public int total;
+        public int ballSteppingActionCountData;
 
-        public InsideRightSideOfSeatDetected(int _total)
+        public InsideRightSideOfSeatDetected(int _ballSteppingActionCountData)
         {
-            total = _total;
+            ballSteppingActionCountData = _ballSteppingActionCountData;
         }
     }
 }

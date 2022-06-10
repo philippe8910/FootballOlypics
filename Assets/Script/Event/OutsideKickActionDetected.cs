@@ -2,11 +2,11 @@
 {
     public class OutsideKickActionDetected
     {
-        public int total;
+        public int ballSteppingActionCountData;
 
-        public OutsideKickActionDetected(int _total)
+        public OutsideKickActionDetected(int _ballSteppingActionCountData)
         {
-            total = _total;
+            ballSteppingActionCountData = _ballSteppingActionCountData;
         }
     }
 }
