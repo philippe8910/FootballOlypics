@@ -87,7 +87,7 @@ public class ActorFootballController : MonoBehaviour
         
         actor.SetKinematic(false);
         
-        ActorPositionReset();
+        //ActorPositionReset();
 
         if (rightAreaTrigger && !isEnter)
         {
@@ -209,7 +209,7 @@ public class ActorFootballController : MonoBehaviour
 
         actor.SetKinematic(true);
         
-        ActorPositionReset();
+        //ActorPositionReset();
         
         if (upAreaTrigger && !isEnter)
         {
