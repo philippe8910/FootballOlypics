@@ -16,7 +16,7 @@ public class LabEventList : MonoBehaviour
     {
         EventBus.Post(new ChangeLevelDetected(FootLevels.BallSteppingAction));
         
-        GameObject.Find("Scoreboard").SetActive(true);
+        GameObject.Find("Scoreboard").GetComponent<Animator>().Play("FadIn");
     }
 
     public void OnInsideRightSideOfSeatTutorialEnd()
