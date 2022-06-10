@@ -33,4 +33,9 @@ public class LabEventList : MonoBehaviour
     {
         EventBus.Post(new ChangeLevelDetected(FootLevels.FreeKickTime));
     }
+
+    public void OnFootballFieldIntroduceEnd()
+    {
+        EventBus.Post(new ChangeLevelDetected(FootLevels.BallSteppingActionTutorial));
+    }
 }

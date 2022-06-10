@@ -10,7 +10,7 @@ public class LevelService : MonoBehaviour
 {
     [SerializeField] private FootLevels currentFootLevels = FootLevels.Defult;
 
-    private void Start()
+    public virtual void Start()
     {
         EventBus.Subscribe<ChangeLevelDetected>(OnChangeLevelDetected);
     }
@@ -19,9 +19,11 @@ public class LevelService : MonoBehaviour
     {
         var currentLevel = obj.currentFootLevels;
         currentFootLevels = currentLevel;
+
+        OnChangeLevelTrigger();
     }
 
-    private void Update()
+    public virtual void Update()
     {
         if (currentFootLevels == FootLevels.BallSteppingAction)
         {
@@ -42,6 +44,11 @@ public class LevelService : MonoBehaviour
         {
             EventBus.Post(new FreeKickTimeDetected());
         }
+        
+    }
+
+    public virtual void OnChangeLevelTrigger()
+    {
         
     }
 
