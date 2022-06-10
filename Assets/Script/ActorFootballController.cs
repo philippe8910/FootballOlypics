@@ -51,6 +51,8 @@ public class ActorFootballController : MonoBehaviour
 
         actor.SetKinematic(false);
         actor.SetConstranit(RigidbodyConstraints.None);
+        
+        ActorPositionReset();
 
         print("Distance : " + Vector3.Distance((GameObject.FindWithTag("Player").transform.position),transform.position));
         
@@ -84,6 +86,8 @@ public class ActorFootballController : MonoBehaviour
         if(isFirstEnter) actor.MoveAction(isRightSide);
         
         actor.SetKinematic(false);
+        
+        ActorPositionReset();
 
         if (rightAreaTrigger && !isEnter)
         {
@@ -146,6 +150,8 @@ public class ActorFootballController : MonoBehaviour
 
         actor.SetKinematic(false);
 
+        ActorPositionReset();
+
         if (rightAreaTrigger && !isEnter)
         {
             isFirstEnter = true;
@@ -202,6 +208,8 @@ public class ActorFootballController : MonoBehaviour
         var leftFootTrigger = actor.GetTriggerEnterObject(FootBallAreaType.UpArea , FootType.LeftFoot);
 
         actor.SetKinematic(true);
+        
+        ActorPositionReset();
         
         if (upAreaTrigger && !isEnter)
         {

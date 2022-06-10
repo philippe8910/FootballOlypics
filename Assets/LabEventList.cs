@@ -36,6 +36,7 @@ public class LabEventList : MonoBehaviour
 
     public void OnFootballFieldIntroduceEnd()
     {
-        EventBus.Post(new ChangeLevelDetected(FootLevels.BallSteppingActionTutorial));
+        EventBus.Post(new ChangeLevelDetected(FootLevels.BallSteppingActionTutorial)); 
+        GameObject.Find("Scoreboard").GetComponent<Animator>().Play("FootFieldFadIn");
     }
 }

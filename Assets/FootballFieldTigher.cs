@@ -18,7 +18,17 @@ public class FootballFieldTigher : MonoBehaviour
 
         switch (levelType)
         {
+            case FootLevels.InsideRightSideOfSeatTutorial:
+                EventBus.Post(new ChangeLevelDetected(FootLevels.BallSteppingAction));
+                break;
             
+            case FootLevels.BallSteppingActionTutorial:
+                EventBus.Post(new ChangeLevelDetected(FootLevels.OutsideKick));
+                break;
+            
+            case FootLevels.OutsideKickTutorial:
+                EventBus.Post(new ChangeLevelDetected(FootLevels.InsideRightSideOfSeat));
+                break;
         }
     }
 
