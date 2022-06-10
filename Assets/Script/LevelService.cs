@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class LevelService : MonoBehaviour
 {
-    [SerializeField] private FootLevels currentFootLevels = FootLevels.Defult;
+    public FootLevels currentFootLevels = FootLevels.Defult;
 
     public virtual void Start()
     {
