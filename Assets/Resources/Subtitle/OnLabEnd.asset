@@ -9,18 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 0274af92967c8af4aa8be22404c086e1, type: 3}
   m_Name: OnLabEnd
-  m_EditorClassIdentifier: Assembly-CSharp::Subtitle
-  subtitleData:
-    subtitleList:
-    - "\u592A\u68D2\u4E86!! \u52D5\u4F5C\u90FD\u6709\u505A\u5C0D"
-    - "\u9019\u6A23\u4F60\u5C31\u6210\u529F\u901A\u904E\u6559\u5B78\u4E86\u5594~"
-    - "\u518D\u4F86\u6211\u5011\u5C07\u4E58\u5750\u98DB\u6A5F\u524D\u5F80\u4ECA\u5E74\u7684\u4E16\u8DB3\u73FE\u5834\u5361\u9054"
-    subtitleTime:
-    - 4.73
-    - 3.54
-    - 6.29
-    onSubtitleEnd:
-      m_PersistentCalls:
-        m_Calls: []
+  m_EditorClassIdentifier: 
+  subtitleList:
+  - "\u592A\u68D2\u4E86!! \u52D5\u4F5C\u90FD\u6709\u505A\u5C0D"
+  - "\u9019\u6A23\u4F60\u5C31\u6210\u529F\u901A\u904E\u6559\u5B78\u4E86\u5594~"
+  - "\u518D\u4F86\u6211\u5011\u5C07\u4E58\u5750\u98DB\u6A5F\u524D\u5F80\u4ECA\u5E74\u7684\u4E16\u8DB3\u73FE\u5834\u5361\u9054"
+  subtitleTime:
+  - 4.73
+  - 3.54
+  - 6.29
+  onSubtitleEnd:
+    m_PersistentCalls:
+      m_Calls: []

@@ -28,9 +28,9 @@ public class SubtitleActor : MonoBehaviour
         textMesh.text = text;
     }
 
-    public Subtitle CompileSubtitleCategory(string category)
+    public ScriptableObjectData CompileSubtitleCategory(string category)
     {
-        var getSubtitle = (Subtitle)Resources.Load("Subtitle/" + category);
+        var getSubtitle = (ScriptableObjectData)Resources.Load("Subtitle/" + category);
         
         return getSubtitle;
     }

@@ -9,30 +9,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 0274af92967c8af4aa8be22404c086e1, type: 3}
   m_Name: FreeKickTimeTutorial
-  m_EditorClassIdentifier: Assembly-CSharp::Subtitle
-  subtitleData:
-    subtitleList:
-    - "\u771F\u68D2 \u4F60\u505A\u7684\u771F\u597D"
-    - "\u90A3\u63A5\u4E0B\u4F86\u4F60\u53EA\u8981\u628A\u7403\u8E22\u9032\u7403\u9580\u5C31\u7562\u696D\u4E86\u5594"
-    - "\u4F86\u5427 \u628A\u7403\u8E22\u9032\u7403\u9580\u5427"
-    subtitleTime:
-    - 4
-    - 4
-    - 4
-    onSubtitleEnd:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6476926751411650038, guid: d1aceb3f327d11848b5d0840122d481d,
-            type: 3}
-          m_MethodName: OnFreeKickTimeTutorialEnd
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  m_EditorClassIdentifier: 
+  subtitleList:
+  - "\u771F\u68D2 \u4F60\u505A\u7684\u771F\u597D"
+  - "\u90A3\u63A5\u4E0B\u4F86\u4F60\u53EA\u8981\u628A\u7403\u8E22\u9032\u7403\u9580\u5C31\u7562\u696D\u4E86\u5594"
+  - "\u4F86\u5427 \u628A\u7403\u8E22\u9032\u7403\u9580\u5427"
+  subtitleTime:
+  - 4
+  - 4
+  - 4
+  onSubtitleEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6476926751411650038, guid: d1aceb3f327d11848b5d0840122d481d,
+          type: 3}
+        m_MethodName: OnFreeKickTimeTutorialEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

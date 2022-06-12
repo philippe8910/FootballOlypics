@@ -9,18 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 0274af92967c8af4aa8be22404c086e1, type: 3}
   m_Name: OnTeleportExitPoint
-  m_EditorClassIdentifier: Assembly-CSharp::Subtitle
-  subtitleData:
-    subtitleList:
-    - "\u963F\u5FD8\u4E86\u63D0\u9192\u4F60\uFF0C\u5728\u4F60\u65C1\u908A\u7684\u6771\u897F\u662F\u9020\u578B\u7BB1"
-    - "\u4F60\u53EF\u4EE5\u66F4\u63DB\u4E0D\u540C\u570B\u5BB6\u7684\u968A\u670D"
-    - "\u90A3\u5C31\u5F85\u6703\u898B\u56C9"
-    subtitleTime:
-    - 3.4
-    - 4.07
-    - 3.81
-    onSubtitleEnd:
-      m_PersistentCalls:
-        m_Calls: []
+  m_EditorClassIdentifier: 
+  subtitleList:
+  - "\u963F\u5FD8\u4E86\u63D0\u9192\u4F60\uFF0C\u5728\u4F60\u65C1\u908A\u7684\u6771\u897F\u662F\u9020\u578B\u7BB1"
+  - "\u4F60\u53EF\u4EE5\u66F4\u63DB\u4E0D\u540C\u570B\u5BB6\u7684\u968A\u670D"
+  - "\u90A3\u5C31\u5F85\u6703\u898B\u56C9"
+  subtitleTime:
+  - 3.4
+  - 4.07
+  - 3.81
+  onSubtitleEnd:
+    m_PersistentCalls:
+      m_Calls: []

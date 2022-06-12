@@ -9,38 +9,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 0274af92967c8af4aa8be22404c086e1, type: 3}
   m_Name: OutsideKickTutorial
-  m_EditorClassIdentifier: Assembly-CSharp::Subtitle
-  subtitleData:
-    subtitleList:
-    - "\u4F60\u771F\u68D2"
-    - "\u63A5\u4E0B\u4F86\u6211\u5011\u8981\u5B78\u7684\u662F\u5916\u5074\u8E22\u7403"
-    - "\u73FE\u5728\u8DDF\u8457\u6211\u7684\u52D5\u4F5C\u4E00\u8D77\u505A\u5594"
-    - "\u5148\u7528\u5DE6\u8173\u7684\u53F3\u5074\u8E22\u7403\u7684\u53F3\u908A"
-    - "\u518D\u7528\u53F3\u8173\u7684\u5DE6\u5074\u8E22\u7403\u7684\u5DE6\u908A"
-    - "\u9019\u6A23\u53CD\u8986\u5FAA\u74B0\u5C31\u53EF\u4EE5\u4E86"
-    - "\u7C21\u55AE\u5427 \u63DB\u4F60\u4E86\u5594"
-    subtitleTime:
-    - 4
-    - 4
-    - 4
-    - 4
-    - 4
-    - 4
-    - 4
-    onSubtitleEnd:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6476926751411650038, guid: d1aceb3f327d11848b5d0840122d481d,
-            type: 3}
-          m_MethodName: OnOutsideKickTutorialEnd
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  m_EditorClassIdentifier: 
+  subtitleList:
+  - "\u4F60\u771F\u68D2"
+  - "\u63A5\u4E0B\u4F86\u6211\u5011\u8981\u5B78\u7684\u662F\u5916\u5074\u8E22\u7403"
+  - "\u73FE\u5728\u8DDF\u8457\u6211\u7684\u52D5\u4F5C\u4E00\u8D77\u505A\u5594"
+  - "\u5148\u7528\u5DE6\u8173\u7684\u53F3\u5074\u8E22\u7403\u7684\u53F3\u908A"
+  - "\u518D\u7528\u53F3\u8173\u7684\u5DE6\u5074\u8E22\u7403\u7684\u5DE6\u908A"
+  - "\u9019\u6A23\u53CD\u8986\u5FAA\u74B0\u5C31\u53EF\u4EE5\u4E86"
+  - "\u7C21\u55AE\u5427 \u63DB\u4F60\u4E86\u5594"
+  subtitleTime:
+  - 4
+  - 4
+  - 4
+  - 4
+  - 4
+  - 4
+  - 4
+  onSubtitleEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6476926751411650038, guid: d1aceb3f327d11848b5d0840122d481d,
+          type: 3}
+        m_MethodName: OnOutsideKickTutorialEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

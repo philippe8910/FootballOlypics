@@ -28,7 +28,7 @@ public class SubtitleSystem : MonoBehaviour
     [Button]
     public void Test()
     {
-        var g = actor.CompileSubtitleCategory("Start");
+        var g = actor.CompileSubtitleCategory("OnStart");
         EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Narration_0));
         StartCoroutine(StartEnterSubtitle(g));
     }
@@ -42,13 +42,13 @@ public class SubtitleSystem : MonoBehaviour
         StartCoroutine(StartEnterSubtitle(g));
     }
 
-    private IEnumerator StartEnterSubtitle(Subtitle subtitle)
+    private IEnumerator StartEnterSubtitle(ScriptableObjectData subtitle)
     {
-        var subtitleStringLength = subtitle.subtitleData.subtitleList.Count;
-        var subtitleTimeLength = subtitle.subtitleData.subtitleTime.Count;
-        var subtitleList = subtitle.subtitleData.subtitleList;
-        var subtitleTimeList = subtitle.subtitleData.subtitleTime;
-        var onSubtitleEnd = subtitle.subtitleData.onSubtitleEnd;
+        var subtitleStringLength = subtitle.subtitleList.Count;
+        var subtitleTimeLength = subtitle.subtitleTime.Count;
+        var subtitleList = subtitle.subtitleList;
+        var subtitleTimeList = subtitle.subtitleTime;
+        var onSubtitleEnd = subtitle.onSubtitleEnd;
 
         if (subtitleStringLength != subtitleTimeLength)
         {

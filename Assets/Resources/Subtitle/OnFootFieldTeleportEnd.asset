@@ -9,34 +9,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 0274af92967c8af4aa8be22404c086e1, type: 3}
   m_Name: OnFootFieldTeleportEnd
-  m_EditorClassIdentifier: Assembly-CSharp::Subtitle
-  subtitleData:
-    subtitleList:
-    - "\u6B61\u8FCE\u4F86\u5230\u5361\u9054\u8DB3\u7403\u5834!!!"
-    - "\u73FE\u5728\u6211\u5011\u6703\u7D66\u4F60\u4E00\u7CFB\u5217\u7684\u6311\u6230"
-    - "\u4F46\u5225\u64D4\u5FC3 \u53EA\u8981\u51B7\u975C\u61C9\u5C0D\u5C31\u53EF\u4EE5\u4E86"
-    - "\u7562\u7ADF\u4F60\u5DF2\u7D93\u901A\u904E\u4E86\u5BE6\u9A57\u5BA4\u7684\u7DF4\u7FD2\u4E86\u561B"
-    - "\u8DDF\u8457\u677F\u5B50\u4E0A\u7684\u5716\u6848\u505A\u52D5\u4F5C\u311B"
-    subtitleTime:
-    - 4
-    - 4
-    - 4
-    - 4
-    - 4
-    onSubtitleEnd:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 6476926751411650038, guid: d1aceb3f327d11848b5d0840122d481d,
-            type: 3}
-          m_MethodName: OnFootballFieldIntroduceEnd
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+  m_EditorClassIdentifier: 
+  subtitleList:
+  - "\u6B61\u8FCE\u4F86\u5230\u5361\u9054\u8DB3\u7403\u5834!!!"
+  - "\u73FE\u5728\u6211\u5011\u6703\u7D66\u4F60\u4E00\u7CFB\u5217\u7684\u6311\u6230"
+  - "\u4F46\u5225\u64D4\u5FC3 \u53EA\u8981\u51B7\u975C\u61C9\u5C0D\u5C31\u53EF\u4EE5\u4E86"
+  - "\u7562\u7ADF\u4F60\u5DF2\u7D93\u901A\u904E\u4E86\u5BE6\u9A57\u5BA4\u7684\u7DF4\u7FD2\u4E86\u561B"
+  - "\u8DDF\u8457\u677F\u5B50\u4E0A\u7684\u5716\u6848\u505A\u52D5\u4F5C\u311B"
+  subtitleTime:
+  - 4
+  - 4
+  - 4
+  - 4
+  - 4
+  onSubtitleEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6476926751411650038, guid: d1aceb3f327d11848b5d0840122d481d,
+          type: 3}
+        m_MethodName: OnFootballFieldIntroduceEnd
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
