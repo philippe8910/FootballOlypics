@@ -6,10 +6,11 @@ using UnityEngine.Events;
 using Valve.VR;
 
 
-[CreateAssetMenu(fileName = "data" , menuName = "data/Test")]
+[CreateAssetMenu(fileName = "Subtitledata" , menuName = "SubtitleVerson2/Subtitledata")]
 public class ScriptableObjectData : ScriptableObject
 {
-    public List<string> testList = new List<string>();
+    public List<string> subtitleList = new List<string>();
+    public List<float> subtitleTime = new List<float>();
 
-    public UnityEvent testEvent = new SteamVR_Events.Event();
+    public UnityEvent onSubtitleEnd = new UnityEvent();
 }
