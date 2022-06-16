@@ -48,4 +48,6 @@ public class LabTigher : MonoBehaviour
     {
         animator.Play("Begining");
     }
+
+
 }
