@@ -46,7 +46,7 @@ public class LabTigher : MonoBehaviour
 
     private void OnStartGameDetected(StartGameDetected obj)
     {
-        animator.Play("Begining");
+        animator.Play("AniWavehand");
     }
 
 
