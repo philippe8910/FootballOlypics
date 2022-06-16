@@ -22,6 +22,8 @@ public class ActorFootballController : MonoBehaviour
     [SerializeField] private bool isRightSide;
     
     [SerializeField] private int ballSteppingActionCount = 0;
+
+    [SerializeField] private float maxDistance;
     
     // Start is called before the first frame update
     void Start()
@@ -90,7 +92,7 @@ public class ActorFootballController : MonoBehaviour
         
         actor.SetKinematic(false);
         
-        //ActorPositionReset();
+        ActorPositionReset();
 
         if (rightAreaTrigger && !isEnter)
         {
@@ -357,10 +359,12 @@ public class ActorFootballController : MonoBehaviour
 
     private void ActorPositionReset()
     {
-        if (Vector3.Distance(playerTransform.position, transform.position) >= 11.7f)
+        if (Vector3.Distance(playerTransform.position, transform.position) >= maxDistance)
         {
+            print(Vector3.Distance(playerTransform.position, transform.position));
             actor.ResetPosition();
             EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Loss));
+            isFirstEnter = false;
         }
 
     }
