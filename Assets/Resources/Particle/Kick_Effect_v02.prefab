@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3960434325817003871}
   - component: {fileID: 3958852086471608811}
   m_Layer: 0
-  m_Name: Puff_Mobile (1)
+  m_Name: Kick_Effect_v02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -249,8 +249,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 60
-      minScalar: 40
+      scalar: 2
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
