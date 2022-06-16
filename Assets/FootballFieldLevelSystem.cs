@@ -11,17 +11,17 @@ public class FootballFieldLevelSystem : LevelService
     {
         if (currentFootLevels == FootLevels.BallSteppingAction)
         {
-            EventBus.Post(new BallSteppingActionDetected(13, FootLevels.InsideRightSideOfSeatTutorial));
+            EventBus.Post(new BallSteppingActionDetected(6, FootLevels.InsideRightSideOfSeatTutorial));
         }
 
         if (currentFootLevels == FootLevels.InsideRightSideOfSeat)
         {
-            EventBus.Post(new InsideRightSideOfSeatDetected(9, FootLevels.OutsideKickTutorial));
+            EventBus.Post(new InsideRightSideOfSeatDetected(6, FootLevels.OutsideKickTutorial));
         }
 
         if (currentFootLevels == FootLevels.OutsideKick)
         {
-            EventBus.Post(new OutsideKickActionDetected(5, FootLevels.FreeKickTimeTutorial));
+            EventBus.Post(new OutsideKickActionDetected(6, FootLevels.FreeKickTimeTutorial));
         }
 
         if (currentFootLevels == FootLevels.FreeKickTime)

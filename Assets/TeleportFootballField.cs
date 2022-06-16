@@ -16,5 +16,6 @@ public class TeleportFootballField : MonoBehaviour
     private async void OnTeleportEnd()
     {
         EventBus.Post(new SubtitleDetected("OnFootFieldTeleportEnd"));
+        EventBus.Post(new ChangeLevelDetected(FootLevels.Defult));
     }
 }
