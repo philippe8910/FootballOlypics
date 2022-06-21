@@ -28,8 +28,8 @@ public class SubtitleSystem : MonoBehaviour
     [Button]
     public void Test()
     {
-        var g = actor.CompileSubtitleCategory("OnStart");
-        EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Narration_0));
+        var g = actor.CompileSubtitleCategory("OnFootFieldTeleportEnd");
+        //EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Narration_0));
         StartCoroutine(StartEnterSubtitle(g));
     }
 
