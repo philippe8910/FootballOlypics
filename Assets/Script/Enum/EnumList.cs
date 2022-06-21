@@ -38,7 +38,10 @@ public enum SoundEffect
     CheerShort,
     Narration_0,
     Narration_1,
-    Narration_2
+    Narration_2,
+    BallStepTutorial,
+    OutsideKickTutorial,
+    InsideKickTutorial
 }
 
 public enum ParticleType

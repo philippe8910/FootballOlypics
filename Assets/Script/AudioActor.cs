@@ -26,9 +26,18 @@ public class AudioActor : MonoBehaviour
             
             case SoundEffect.Narration_1:
                 return narrationSources[1];
-            
+
             case SoundEffect.Narration_2:
                 return narrationSources[2];
+
+            case SoundEffect.BallStepTutorial:
+                return narrationSources[3];
+
+            case SoundEffect.InsideKickTutorial:
+                return narrationSources[4];
+
+            case SoundEffect.OutsideKickTutorial:
+                return narrationSources[5];
 
             default:
                 return null;

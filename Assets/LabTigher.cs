@@ -25,21 +25,25 @@ public class LabTigher : MonoBehaviour
         {
             case FootLevels.BallSteppingActionTutorial:
                 animator.Play("BallSteppingActionTutorial");
+                EventBus.Post(new PlaySoundEffectDetected(SoundEffect.BallStepTutorial));
                 break;
             
             case FootLevels.InsideRightSideOfSeatTutorial:
                 animator.Play("InsideRightSideOfSeatTutorial");
                 EventBus.Post(new SubtitleDetected("InsideRightSideOfSeatTutorial"));
+                EventBus.Post(new PlaySoundEffectDetected(SoundEffect.InsideKickTutorial));
                 break;
             
             case FootLevels.OutsideKickTutorial:
                 animator.Play("OutsideKickTutorial");
                 EventBus.Post(new SubtitleDetected("OutsideKickTutorial"));
+                EventBus.Post(new PlaySoundEffectDetected(SoundEffect.OutsideKickTutorial));
                 break; 
             
             case FootLevels.FreeKickTimeTutorial:
                 animator.Play("Begining");
                 EventBus.Post(new SubtitleDetected("FreeKickTimeTutorial"));
+                EventBus.Post(new PlaySoundEffectDetected(SoundEffect.BallStepTutorial));
                 break; 
         }
     }
