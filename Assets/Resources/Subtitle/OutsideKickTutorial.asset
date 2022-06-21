@@ -20,12 +20,12 @@ MonoBehaviour:
   - "\u5169\u8173\u5916\u5074\u4EA4\u4E92\u78B0\u7403\u8B93\u7403\u80FD\u5920\u5728\u5169\u8173\u524D\u65B9\u6EFE\u52D5"
   - "\u7C21\u55AE\u5427 \u63DB\u4F60\u4E86\u5594"
   subtitleTime:
-  - 4
-  - 4
-  - 4
-  - 4
-  - 4
-  - 4
+  - 3.66
+  - 4.4
+  - 4.51
+  - 5.93
+  - 8.14
+  - 3.13
   onSubtitleEnd:
     m_PersistentCalls:
       m_Calls:
