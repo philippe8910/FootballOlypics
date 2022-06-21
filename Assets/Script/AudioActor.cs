@@ -38,6 +38,9 @@ public class AudioActor : MonoBehaviour
 
             case SoundEffect.OutsideKickTutorial:
                 return narrationSources[5];
+            
+            case  SoundEffect.FreeKickTimeTutorial:
+                return narrationSources[6];
 
             default:
                 return null;

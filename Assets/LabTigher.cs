@@ -43,7 +43,7 @@ public class LabTigher : MonoBehaviour
             case FootLevels.FreeKickTimeTutorial:
                 animator.Play("Begining");
                 EventBus.Post(new SubtitleDetected("FreeKickTimeTutorial"));
-                EventBus.Post(new PlaySoundEffectDetected(SoundEffect.BallStepTutorial));
+                EventBus.Post(new PlaySoundEffectDetected(SoundEffect.FreeKickTimeTutorial));
                 break; 
         }
     }

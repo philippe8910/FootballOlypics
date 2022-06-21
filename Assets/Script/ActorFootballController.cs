@@ -56,7 +56,7 @@ public class ActorFootballController : MonoBehaviour
         
         //ActorPositionReset();
 
-        print("Distance : " + Vector3.Distance((GameObject.FindWithTag("Player").transform.position),transform.position));
+        //print("Distance : " + Vector3.Distance((GameObject.FindWithTag("Player").transform.position),transform.position));
         
         if (allAreaTrigger && !isEnter)
         {

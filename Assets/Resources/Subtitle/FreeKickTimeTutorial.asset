@@ -17,9 +17,9 @@ MonoBehaviour:
   - "\u90A3\u63A5\u4E0B\u4F86\u4F60\u53EA\u8981\u628A\u7403\u8E22\u9032\u7403\u9580\u5C31\u53EF\u4EE5\u53BB\u5361\u9054\u4E86"
   - "\u4F86\u5427 \u628A\u7403\u8E22\u9032\u7403\u9580\u5427"
   subtitleTime:
-  - 4
-  - 4
-  - 4
+  - 3.56
+  - 5.76
+  - 3.87
   onSubtitleEnd:
     m_PersistentCalls:
       m_Calls:

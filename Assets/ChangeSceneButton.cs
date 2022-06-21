@@ -12,6 +12,8 @@ public class ChangeSceneButton : ButtonEventAdd
         EventBus.Post(new ChangeSceneEffectDetected());
 
         await Task.Delay(3000);
+        
+        EventBus.ClearAllAction();
 
         UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }

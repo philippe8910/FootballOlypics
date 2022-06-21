@@ -5,6 +5,7 @@ using Project;
 using Project.Event;
 using UnityEngine;
 
+
 public class GoalArea : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
