@@ -54,7 +54,7 @@ public class ActorFootballController : MonoBehaviour
         actor.SetKinematic(false);
         actor.SetConstranit(RigidbodyConstraints.None);
         
-        ActorPositionReset();
+        //ActorPositionReset();
 
         print("Distance : " + Vector3.Distance((GameObject.FindWithTag("Player").transform.position),transform.position));
         
@@ -92,7 +92,7 @@ public class ActorFootballController : MonoBehaviour
         
         actor.SetKinematic(false);
         
-        ActorPositionReset();
+       // ActorPositionReset();
 
         if (rightAreaTrigger && !isEnter)
         {
@@ -158,7 +158,7 @@ public class ActorFootballController : MonoBehaviour
 
         actor.SetKinematic(false);
 
-        ActorPositionReset();
+        //ActorPositionReset();
 
         if (rightAreaTrigger && !isEnter)
         {
@@ -335,9 +335,14 @@ public class ActorFootballController : MonoBehaviour
 
     //TODO
 
-    private void OnTriggerEnterArea()
+    private void OnTriggerEnterArea(Collider collider)
     {
-        
+        if(collider.CompareTag("ResetArea"))
+        {
+            actor.ResetPosition();
+            EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Loss));
+            isFirstEnter = false;
+        }
     }
 
     private void OnTriggerStayArea()
@@ -357,18 +362,23 @@ public class ActorFootballController : MonoBehaviour
         EventBus.Post(new ParticleActionDetected(allAreaEnterObject.transform.position , ParticleType.KickEffect_Azer));
     }
 
-    private void ActorPositionReset()
+    private void OnTriggerEnter(Collider other)
     {
-        if (Vector3.Distance(playerTransform.position, transform.position) >= maxDistance)
-        {
-            print(Vector3.Distance(playerTransform.position, transform.position));
-            actor.ResetPosition();
-            EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Loss));
-            isFirstEnter = false;
-        }
-
+        OnTriggerEnterArea(other);
     }
-    
-    
+
+    //private void ActorPositionReset()
+    //{
+    //    if (Vector3.Distance(playerTransform.position, transform.position) >= maxDistance)
+    //    {
+    //        print(Vector3.Distance(playerTransform.position, transform.position));
+    //        actor.ResetPosition();
+    //        EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Loss));
+    //        isFirstEnter = false;
+    //    }
+
+    //}
+
+
 
 }
