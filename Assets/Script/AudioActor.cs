@@ -42,6 +42,9 @@ public class AudioActor : MonoBehaviour
             case  SoundEffect.FreeKickTimeTutorial:
                 return narrationSources[6];
 
+            case SoundEffect.OnFootFieldTeleportEnd:
+                return narrationSources[7];
+
             default:
                 return null;
         }

@@ -19,11 +19,11 @@ MonoBehaviour:
   - "\u7562\u7ADF\u4F60\u5DF2\u7D93\u901A\u904E\u4E86\u5BE6\u9A57\u5BA4\u7684\u7DF4\u7FD2\u4E86\u561B"
   - "\u8DDF\u8457\u677F\u5B50\u4E0A\u7684\u5716\u6848\u505A\u52D5\u4F5C\u311B"
   subtitleTime:
-  - 4
-  - 4
-  - 4
-  - 4
-  - 4
+  - 4.81
+  - 3.6
+  - 4.44
+  - 4.03
+  - 3.98
   onSubtitleEnd:
     m_PersistentCalls:
       m_Calls:

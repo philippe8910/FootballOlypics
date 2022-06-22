@@ -42,7 +42,8 @@ public enum SoundEffect
     BallStepTutorial,
     OutsideKickTutorial,
     InsideKickTutorial,
-    FreeKickTimeTutorial
+    FreeKickTimeTutorial,
+    OnFootFieldTeleportEnd
 }
 
 public enum ParticleType
