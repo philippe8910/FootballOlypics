@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.footballolympics.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\4A8K0\\Documents\\FootballOlypics\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\4A8K0\\OneDrive\\文件\\FootballOlypics\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "FootballOlympics [Testing]"

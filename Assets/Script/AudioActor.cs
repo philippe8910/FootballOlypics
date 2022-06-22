@@ -20,7 +20,13 @@ public class AudioActor : MonoBehaviour
 
             case SoundEffect.Kick:
                 return audioSources[1];
-            
+
+            case SoundEffect.CheerShort:
+                return audioSources[3];
+
+            case SoundEffect.CheerLong:
+                return audioSources[2];
+
             case SoundEffect.Narration_0:
                 return narrationSources[0];
             

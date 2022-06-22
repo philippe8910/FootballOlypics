@@ -65,9 +65,11 @@ public class ActorFootballController : MonoBehaviour
             
             print("footBallFlyDir" + footBallFlyDir);
 
-            actor.Kick(footBallFlyDir, 10);
+            actor.Kick(footBallFlyDir, 13);
             
             PlayKickAudio(); //踢球聲音
+
+            EventBus.Post(new KickBallDetected());
 
             isEnter = true;
         }
