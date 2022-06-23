@@ -51,6 +51,9 @@ public class AudioActor : MonoBehaviour
             case SoundEffect.OnFootFieldTeleportEnd:
                 return narrationSources[7];
 
+            case SoundEffect.FinalKick:
+                return narrationSources[8];
+
             default:
                 return null;
         }
