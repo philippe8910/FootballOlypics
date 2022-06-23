@@ -32,7 +32,7 @@ public class BlackBoardCtr : MonoBehaviour
                 blackBoardUI[1].SetActive(true);
                 break;
             case FootLevels.OutsideKick:
-                blackBoardUI[1].SetActive(true);
+                blackBoardUI[2].SetActive(true);
                 break;
         }
     }
