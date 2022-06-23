@@ -14,14 +14,12 @@ public class ParticlCtr : MonoBehaviour
     private void OnParticleActionDetected(ParticleActionDetected obj)
     {
         var particleType = obj.particleType;
-        var targetPsition = obj.targetPsition;
+        var targetPosition = obj.targetPsition;
 
         var particlePrefab = TypeComplie(particleType);
 
-        var g = Instantiate(particlePrefab, targetPsition, Quaternion.identity);
+        var g = Instantiate(particlePrefab, targetPosition, Quaternion.identity);
         Destroy(g,2);
-        
-        
     }
 
     private GameObject TypeComplie(ParticleType particleType)
