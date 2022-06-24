@@ -12,7 +12,8 @@ public enum FootLevels
     OutsideKickTutorial,
     OutsideKick,
     FreeKickTimeTutorial,
-    FreeKickTime
+    FreeKickTime,
+    Pause
 }
 
 public enum FootBallAreaType

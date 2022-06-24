@@ -57,4 +57,9 @@ public class LabEventList : MonoBehaviour
 
         GameObject.Find("Scoreboard").GetComponent<Animator>().Play("FootFieldFadIn");
     }
+
+    public void OnFinishFootField()
+    {
+        EventBus.Post(new ChangeLevelDetected(FootLevels.FreeKickTime));
+    }
 }

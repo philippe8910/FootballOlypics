@@ -42,11 +42,5 @@ public class ParticlCtr : MonoBehaviour
         return obj;
     }
     
-    
-
-    void Update()
-    {
-        
-    }
-
+   
 }

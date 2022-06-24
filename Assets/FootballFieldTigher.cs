@@ -24,20 +24,30 @@ public class FootballFieldTigher : MonoBehaviour
         {
             case FootLevels.FreeKickTimeTutorial:
                 EventBus.Post(new ChangeLevelDetected(FootLevels.FreeKickTime));
+                EventBus.Post(new PlaySoundEffectDetected(SoundEffect.FinalKick));
+                EventBus.Post(new SubtitleDetected("FinalKick"));
                 break;
 
             case FootLevels.BallSteppingActionTutorial:
-                EventBus.Post(new ChangeLevelDetected(FootLevels.FreeKickTime));
+                EventBus.Post(new ChangeLevelDetected(FootLevels.Pause));
+                EventBus.Post(new PlaySoundEffectDetected(SoundEffect.FinalKick));
+                EventBus.Post(new SubtitleDetected("FinalKick"));
                 break;
 
             case FootLevels.OutsideKickTutorial:
-                EventBus.Post(new ChangeLevelDetected(FootLevels.FreeKickTime));
+                EventBus.Post(new ChangeLevelDetected(FootLevels.Pause));
+                EventBus.Post(new PlaySoundEffectDetected(SoundEffect.FinalKick));
+                EventBus.Post(new SubtitleDetected("FinalKick"));
                 break;
 
             case FootLevels.InsideRightSideOfSeatTutorial:
-                EventBus.Post(new ChangeLevelDetected(FootLevels.FreeKickTime));
+                EventBus.Post(new ChangeLevelDetected(FootLevels.Pause));
+                EventBus.Post(new PlaySoundEffectDetected(SoundEffect.FinalKick));
+                EventBus.Post(new SubtitleDetected("FinalKick"));
                 break;
         }
+
+        
 
         if (levelType == FootLevels.Defult)
         {
