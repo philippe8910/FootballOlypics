@@ -23,6 +23,13 @@ public class Defender : MonoBehaviour
 
     private void OnFreeKickTimeDetected(FreeKickTimeDetected obj)
     {
+        
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         if(Vector3.Distance(transform.position, footBall.transform.position) <= 2.5f)
         {
             if (footBall.transform.position.x > 0)
@@ -34,12 +41,5 @@ public class Defender : MonoBehaviour
                 animator.Play("test_dae01_Right");
             }
         }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

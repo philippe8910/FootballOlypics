@@ -10,6 +10,8 @@ public class SkinBox : ButtonXR
     [SerializeField] private Material _material;
 
     [SerializeField] private Animator animator;
+
+    [SerializeField] private string bodyIndex;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -27,5 +29,7 @@ public class SkinBox : ButtonXR
     {
         EventBus.Post(new ChangeSkinDetected(_material));
         animator.Play("BoxOpen");
+        
+        PlayerPrefs.SetString("BodyIndex" , bodyIndex);
     }
 }
