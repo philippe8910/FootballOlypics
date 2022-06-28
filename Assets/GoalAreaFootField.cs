@@ -8,6 +8,8 @@ using UnityEngine;
 public class GoalAreaFootField : MonoBehaviour
 {
     [SerializeField] private GameObject trophy;
+
+    [SerializeField] private GameObject finishEffect;
     
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +17,7 @@ public class GoalAreaFootField : MonoBehaviour
         {
             EventBus.Post(new PlaySoundEffectDetected(SoundEffect.CheerShort));
             trophy.SetActive(true);
+            finishEffect.SetActive(true);
         }
         
     }
