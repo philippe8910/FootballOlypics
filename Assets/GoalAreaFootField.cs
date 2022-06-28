@@ -13,7 +13,7 @@ public class GoalAreaFootField : MonoBehaviour
     {
         if (other.CompareTag("FootBall"))
         {
-            EventBus.Post(new PlaySoundEffectDetected(SoundEffect.CheerLong));
+            EventBus.Post(new PlaySoundEffectDetected(SoundEffect.CheerShort));
             trophy.SetActive(true);
         }
         

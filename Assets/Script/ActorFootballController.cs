@@ -43,6 +43,11 @@ public class ActorFootballController : MonoBehaviour
     {
         isFirstEnter = false;
         actor.ResetPosition();
+
+        if(obj.currentFootLevels == FootLevels.Pause)
+        {
+            actor.SetKinematic(true);
+        }
     }
 
     //TODO
