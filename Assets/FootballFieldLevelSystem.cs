@@ -16,7 +16,7 @@ public class FootballFieldLevelSystem : LevelService
 
         if (currentFootLevels == FootLevels.InsideRightSideOfSeat)
         {
-            EventBus.Post(new InsideRightSideOfSeatDetected(6, FootLevels.OutsideKickTutorial));
+            EventBus.Post(new InsideRightSideOfSeatDetected(6, FootLevels.FreeKickTimeTutorial));
         }
 
         if (currentFootLevels == FootLevels.OutsideKick)
