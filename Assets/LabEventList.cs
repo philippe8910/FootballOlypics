@@ -45,7 +45,7 @@ public class LabEventList : MonoBehaviour
                 break;
             
             case 1:
-                EventBus.Post(new ChangeLevelDetected(FootLevels.OutsideKick)); 
+                EventBus.Post(new ChangeLevelDetected(FootLevels.InsideRightSideOfSeat)); 
                 break;
             
             case 2:

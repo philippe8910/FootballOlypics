@@ -340,6 +340,12 @@ public class ActorFootballController : MonoBehaviour
         EventBus.Post(new PlaySoundEffectDetected(SoundEffect.Kick));
     }
 
+    [Button]
+    public void ResetBall()
+    {
+        actor.ResetPosition();
+    }
+
     //TODO
 
     private void OnTriggerEnterArea(Collider collider)
